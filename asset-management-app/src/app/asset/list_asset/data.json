@@ -2,613 +2,1001 @@
   {
     "id": 1,
     "asset_name": "Cover page",
-    "asset_type": "Cover page",
+    "asset_id": "A001",
+    "asset_category": "Document",
     "asset_status": "In Process",
-    "count": "18",
-    "value": "5",
-    "asset_reviewer": "Eddie Lake"
+    "asset_location": "Folder A",
+    "asset_created": "2024-01-15",
+    "asset_updated": "2025-06-10"
   },
   {
     "id": 2,
     "asset_name": "Table of contents",
-    "asset_type": "Table of contents",
+    "asset_id": "A002",
+    "asset_category": "Document",
     "asset_status": "Done",
-    "count": "29",
-    "value": "24",
-    "asset_reviewer": "Eddie Lake"
+    "asset_location": "Folder A",
+    "asset_created": "2024-01-16",
+    "asset_updated": "2025-06-11"
   },
   {
     "id": 3,
     "asset_name": "Executive summary",
-    "asset_type": "Narrative",
+    "asset_id": "A003",
+    "asset_category": "Narrative",
     "asset_status": "Done",
-    "count": "10",
-    "value": "13",
-    "asset_reviewer": "Eddie Lake"
+    "asset_location": "Folder B",
+    "asset_created": "2024-01-17",
+    "asset_updated": "2025-06-12"
   },
   {
     "id": 4,
     "asset_name": "Technical approach",
-    "asset_type": "Narrative",
+    "asset_id": "A004",
+    "asset_category": "Narrative",
     "asset_status": "Done",
-    "count": "27",
-    "value": "23",
-    "asset_reviewer": "Jamik Tashpulatov"
+    "asset_location": "Folder C",
+    "asset_created": "2024-01-18",
+    "asset_updated": "2025-06-13"
   },
   {
     "id": 5,
     "asset_name": "Design",
-    "asset_type": "Narrative",
+    "asset_id": "A005",
+    "asset_category": "Narrative",
     "asset_status": "In Process",
-    "count": "2",
-    "value": "16",
-    "asset_reviewer": "Jamik Tashpulatov"
+    "asset_location": "Folder C",
+    "asset_created": "2024-01-19",
+    "asset_updated": "2025-06-09"
   },
   {
     "id": 6,
     "asset_name": "Capabilities",
-    "asset_type": "Narrative",
+    "asset_id": "A006",
+    "asset_category": "Narrative",
     "asset_status": "In Process",
-    "count": "20",
-    "value": "8",
-    "asset_reviewer": "Jamik Tashpulatov"
+    "asset_location": "Folder C",
+    "asset_created": "2024-01-20",
+    "asset_updated": "2025-06-08"
   },
   {
     "id": 7,
     "asset_name": "Integration with existing systems",
-    "asset_type": "Narrative",
+    "asset_id": "A007",
+    "asset_category": "Narrative",
     "asset_status": "In Process",
-    "count": "19",
-    "value": "21",
-    "asset_reviewer": "Jamik Tashpulatov"
+    "asset_location": "Folder D",
+    "asset_created": "2024-01-21",
+    "asset_updated": "2025-06-07"
   },
   {
     "id": 8,
     "asset_name": "Innovation and Advantages",
-    "asset_type": "Narrative",
+    "asset_id": "A008",
+    "asset_category": "Narrative",
     "asset_status": "Done",
-    "count": "25",
-    "value": "26",
-    "asset_reviewer": "Assign asset_reviewer"
+    "asset_location": "Folder D",
+    "asset_created": "2024-01-22",
+    "asset_updated": "2025-06-13"
   },
   {
     "id": 9,
     "asset_name": "Overview of EMR's Innovative Solutions",
-    "asset_type": "Technical content",
+    "asset_id": "A009",
+    "asset_category": "Technical content",
     "asset_status": "Done",
-    "count": "7",
-    "value": "23",
-    "asset_reviewer": "Assign asset_reviewer"
+    "asset_location": "Folder E",
+    "asset_created": "2024-01-23",
+    "asset_updated": "2025-06-12"
   },
   {
     "id": 10,
     "asset_name": "Advanced Algorithms and Machine Learning",
-    "asset_type": "Narrative",
+    "asset_id": "A010",
+    "asset_category": "Narrative",
     "asset_status": "Done",
-    "count": "30",
-    "value": "28",
-    "asset_reviewer": "Assign asset_reviewer"
+    "asset_location": "Folder E",
+    "asset_created": "2024-01-24",
+    "asset_updated": "2025-06-11"
   },
   {
     "id": 11,
     "asset_name": "Adaptive Communication Protocols",
-    "asset_type": "Narrative",
+    "asset_id": "A011",
+    "asset_category": "Narrative",
     "asset_status": "Done",
-    "count": "9",
-    "value": "31",
-    "asset_reviewer": "Assign asset_reviewer"
+    "asset_location": "Folder F",
+    "asset_created": "2024-01-25",
+    "asset_updated": "2025-06-10"
   },
   {
     "id": 12,
     "asset_name": "Advantages Over Current Technologies",
-    "asset_type": "Narrative",
+    "asset_id": "A012",
+    "asset_category": "Narrative",
     "asset_status": "Done",
-    "count": "12",
-    "value": "0",
-    "asset_reviewer": "Assign asset_reviewer"
+    "asset_location": "Folder F",
+    "asset_created": "2024-01-26",
+    "asset_updated": "2025-06-09"
   },
   {
     "id": 13,
     "asset_name": "Past Performance",
-    "asset_type": "Narrative",
+    "asset_id": "A013",
+    "asset_category": "Narrative",
     "asset_status": "Done",
-    "count": "22",
-    "value": "33",
-    "asset_reviewer": "Assign asset_reviewer"
+    "asset_location": "Folder G",
+    "asset_created": "2024-01-27",
+    "asset_updated": "2025-06-08"
   },
   {
     "id": 14,
     "asset_name": "Customer Feedback and Satisfaction Levels",
-    "asset_type": "Narrative",
+    "asset_id": "A014",
+    "asset_category": "Narrative",
     "asset_status": "Done",
-    "count": "15",
-    "value": "34",
-    "asset_reviewer": "Assign asset_reviewer"
+    "asset_location": "Folder G",
+    "asset_created": "2024-01-28",
+    "asset_updated": "2025-06-07"
   },
   {
     "id": 15,
     "asset_name": "Implementation Challenges and Solutions",
-    "asset_type": "Narrative",
+    "asset_id": "A015",
+    "asset_category": "Narrative",
     "asset_status": "Done",
-    "count": "3",
-    "value": "35",
-    "asset_reviewer": "Assign asset_reviewer"
+    "asset_location": "Folder H",
+    "asset_created": "2024-01-29",
+    "asset_updated": "2025-06-13"
   },
   {
     "id": 16,
     "asset_name": "Security Measures and Data Protection Policies",
-    "asset_type": "Narrative",
+    "asset_id": "A016",
+    "asset_category": "Narrative",
     "asset_status": "In Process",
-    "count": "6",
-    "value": "36",
-    "asset_reviewer": "Assign asset_reviewer"
+    "asset_location": "Folder H",
+    "asset_created": "2024-01-30",
+    "asset_updated": "2025-06-06"
   },
   {
     "id": 17,
     "asset_name": "Scalability and Future Proofing",
-    "asset_type": "Narrative",
+    "asset_id": "A017",
+    "asset_category": "Narrative",
     "asset_status": "Done",
-    "count": "4",
-    "value": "37",
-    "asset_reviewer": "Assign asset_reviewer"
+    "asset_location": "Folder I",
+    "asset_created": "2024-01-31",
+    "asset_updated": "2025-06-12"
   },
   {
     "id": 18,
     "asset_name": "Cost-Benefit Analysis",
-    "asset_type": "Plain language",
+    "asset_id": "A018",
+    "asset_category": "Plain language",
     "asset_status": "Done",
-    "count": "14",
-    "value": "38",
-    "asset_reviewer": "Assign asset_reviewer"
+    "asset_location": "Folder I",
+    "asset_created": "2024-02-01",
+    "asset_updated": "2025-06-11"
   },
   {
     "id": 19,
     "asset_name": "User Training and Onboarding Experience",
-    "asset_type": "Narrative",
+    "asset_id": "A019",
+    "asset_category": "Narrative",
     "asset_status": "Done",
-    "count": "17",
-    "value": "39",
-    "asset_reviewer": "Assign asset_reviewer"
+    "asset_location": "Folder J",
+    "asset_created": "2024-02-02",
+    "asset_updated": "2025-06-10"
   },
   {
     "id": 20,
     "asset_name": "Future Development Roadmap",
-    "asset_type": "Narrative",
+    "asset_id": "A020",
+    "asset_category": "Narrative",
     "asset_status": "Done",
-    "count": "11",
-    "value": "40",
-    "asset_reviewer": "Assign asset_reviewer"
+    "asset_location": "Folder J",
+    "asset_created": "2024-02-03",
+    "asset_updated": "2025-06-09"
   },
   {
     "id": 21,
     "asset_name": "System Architecture Overview",
-    "asset_type": "Technical content",
+    "asset_id": "A021",
+    "asset_category": "Technical content",
     "asset_status": "In Process",
-    "count": "24",
-    "value": "18",
-    "asset_reviewer": "Maya Johnson"
+    "asset_location": "Folder K",
+    "asset_created": "2024-02-04",
+    "asset_updated": "2025-06-05"
   },
   {
     "id": 22,
     "asset_name": "Risk Management Plan",
-    "asset_type": "Narrative",
+    "asset_id": "A022",
+    "asset_category": "Narrative",
     "asset_status": "Done",
-    "count": "15",
-    "value": "22",
-    "asset_reviewer": "Carlos Rodriguez"
+    "asset_location": "Folder L",
+    "asset_created": "2024-02-05",
+    "asset_updated": "2025-06-13"
   },
   {
     "id": 23,
     "asset_name": "Compliance Documentation",
-    "asset_type": "Legal",
+    "asset_id": "A023",
+    "asset_category": "Legal",
     "asset_status": "In Process",
-    "count": "31",
-    "value": "27",
-    "asset_reviewer": "Sarah Chen"
+    "asset_location": "Folder M",
+    "asset_created": "2024-02-06",
+    "asset_updated": "2025-06-04"
   },
   {
     "id": 24,
     "asset_name": "API Documentation",
-    "asset_type": "Technical content",
+    "asset_id": "A024",
+    "asset_category": "Technical content",
     "asset_status": "Done",
-    "count": "8",
-    "value": "12",
-    "asset_reviewer": "Raj Patel"
+    "asset_location": "Folder N",
+    "asset_created": "2024-02-07",
+    "asset_updated": "2025-06-12"
   },
   {
     "id": 25,
     "asset_name": "User Interface Mockups",
-    "asset_type": "Visual",
+    "asset_id": "A025",
+    "asset_category": "Visual",
     "asset_status": "In Process",
-    "count": "19",
-    "value": "25",
-    "asset_reviewer": "Leila Ahmadi"
+    "asset_location": "Folder O",
+    "asset_created": "2024-02-08",
+    "asset_updated": "2025-06-03"
   },
   {
     "id": 26,
     "asset_name": "Database Schema",
-    "asset_type": "Technical content",
+    "asset_id": "A026",
+    "asset_category": "Technical content",
     "asset_status": "Done",
-    "count": "22",
-    "value": "20",
-    "asset_reviewer": "Thomas Wilson"
+    "asset_location": "Folder P",
+    "asset_created": "2024-02-09",
+    "asset_updated": "2025-06-11"
   },
   {
     "id": 27,
     "asset_name": "Testing Methodology",
-    "asset_type": "Technical content",
+    "asset_id": "A027",
+    "asset_category": "Technical content",
     "asset_status": "In Process",
-    "count": "17",
-    "value": "14",
-    "asset_reviewer": "Assign asset_reviewer"
+    "asset_location": "Folder Q",
+    "asset_created": "2024-02-10",
+    "asset_updated": "2025-06-02"
   },
   {
     "id": 28,
     "asset_name": "Deployment Strategy",
-    "asset_type": "Narrative",
+    "asset_id": "A028",
+    "asset_category": "Narrative",
     "asset_status": "Done",
-    "count": "26",
-    "value": "30",
-    "asset_reviewer": "Eddie Lake"
+    "asset_location": "Folder R",
+    "asset_created": "2024-02-11",
+    "asset_updated": "2025-06-10"
   },
   {
     "id": 29,
     "asset_name": "Budget Breakdown",
-    "asset_type": "Financial",
+    "asset_id": "A029",
+    "asset_category": "Financial",
     "asset_status": "In Process",
-    "count": "13",
-    "value": "16",
-    "asset_reviewer": "Jamik Tashpulatov"
+    "asset_location": "Folder S",
+    "asset_created": "2024-02-12",
+    "asset_updated": "2025-06-01"
   },
   {
     "id": 30,
     "asset_name": "Market Analysis",
-    "asset_type": "Research",
+    "asset_id": "A030",
+    "asset_category": "Research",
     "asset_status": "Done",
-    "count": "29",
-    "value": "32",
-    "asset_reviewer": "Sophia Martinez"
+    "asset_location": "Folder T",
+    "asset_created": "2024-02-13",
+    "asset_updated": "2025-06-13"
   },
   {
     "id": 31,
     "asset_name": "Competitor Comparison",
-    "asset_type": "Research",
+    "asset_id": "A031",
+    "asset_category": "Research",
     "asset_status": "In Process",
-    "count": "21",
-    "value": "19",
-    "asset_reviewer": "Assign asset_reviewer"
+    "asset_location": "Folder U",
+    "asset_created": "2024-02-14",
+    "asset_updated": "2025-05-31"
   },
   {
     "id": 32,
     "asset_name": "Maintenance Plan",
-    "asset_type": "Technical content",
+    "asset_id": "A032",
+    "asset_category": "Technical content",
     "asset_status": "Done",
-    "count": "16",
-    "value": "23",
-    "asset_reviewer": "Alex Thompson"
+    "asset_location": "Folder V",
+    "asset_created": "2024-02-15",
+    "asset_updated": "2025-06-12"
   },
   {
     "id": 33,
     "asset_name": "User Personas",
-    "asset_type": "Research",
+    "asset_id": "A033",
+    "asset_category": "Research",
     "asset_status": "In Process",
-    "count": "27",
-    "value": "24",
-    "asset_reviewer": "Nina Patel"
+    "asset_location": "Folder W",
+    "asset_created": "2024-02-16",
+    "asset_updated": "2025-05-30"
   },
   {
     "id": 34,
     "asset_name": "Accessibility Compliance",
-    "asset_type": "Legal",
+    "asset_id": "A034",
+    "asset_category": "Legal",
     "asset_status": "Done",
-    "count": "18",
-    "value": "21",
-    "asset_reviewer": "Assign asset_reviewer"
+    "asset_location": "Folder X",
+    "asset_created": "2024-02-17",
+    "asset_updated": "2025-06-11"
   },
   {
     "id": 35,
     "asset_name": "Performance Metrics",
-    "asset_type": "Technical content",
+    "asset_id": "A035",
+    "asset_category": "Technical content",
     "asset_status": "In Process",
-    "count": "23",
-    "value": "26",
-    "asset_reviewer": "David Kim"
+    "asset_location": "Folder Y",
+    "asset_created": "2024-02-18",
+    "asset_updated": "2025-05-29"
   },
   {
     "id": 36,
     "asset_name": "Disaster Recovery Plan",
-    "asset_type": "Technical content",
+    "asset_id": "A036",
+    "asset_category": "Technical content",
     "asset_status": "Done",
-    "count": "14",
-    "value": "17",
-    "asset_reviewer": "Jamik Tashpulatov"
+    "asset_location": "Folder Z",
+    "asset_created": "2024-02-19",
+    "asset_updated": "2025-06-10"
   },
   {
     "id": 37,
     "asset_name": "Third-party Integrations",
-    "asset_type": "Technical content",
+    "asset_id": "A037",
+    "asset_category": "Technical content",
     "asset_status": "In Process",
-    "count": "25",
-    "value": "28",
-    "asset_reviewer": "Eddie Lake"
+    "asset_location": "Folder A",
+    "asset_created": "2024-02-20",
+    "asset_updated": "2025-05-28"
   },
   {
     "id": 38,
     "asset_name": "User Feedback Summary",
-    "asset_type": "Research",
+    "asset_id": "A038",
+    "asset_category": "Research",
     "asset_status": "Done",
-    "count": "20",
-    "value": "15",
-    "asset_reviewer": "Assign asset_reviewer"
+    "asset_location": "Folder B",
+    "asset_created": "2024-02-21",
+    "asset_updated": "2025-06-09"
   },
   {
     "id": 39,
     "asset_name": "Localization Strategy",
-    "asset_type": "Narrative",
+    "asset_id": "A039",
+    "asset_category": "Narrative",
     "asset_status": "In Process",
-    "count": "12",
-    "value": "19",
-    "asset_reviewer": "Maria Garcia"
+    "asset_location": "Folder C",
+    "asset_created": "2024-02-22",
+    "asset_updated": "2025-05-27"
   },
   {
     "id": 40,
     "asset_name": "Mobile Compatibility",
-    "asset_type": "Technical content",
+    "asset_id": "A040",
+    "asset_category": "Technical content",
     "asset_status": "Done",
-    "count": "28",
-    "value": "31",
-    "asset_reviewer": "James Wilson"
+    "asset_location": "Folder D",
+    "asset_created": "2024-02-23",
+    "asset_updated": "2025-06-08"
   },
   {
     "id": 41,
     "asset_name": "Data Migration Plan",
-    "asset_type": "Technical content",
+    "asset_id": "A041",
+    "asset_category": "Technical content",
     "asset_status": "In Process",
-    "count": "19",
-    "value": "22",
-    "asset_reviewer": "Assign asset_reviewer"
+    "asset_location": "Folder E",
+    "asset_created": "2024-02-24",
+    "asset_updated": "2025-05-26"
   },
   {
     "id": 42,
     "asset_name": "Quality Assurance Protocols",
-    "asset_type": "Technical content",
+    "asset_id": "A042",
+    "asset_category": "Technical content",
     "asset_status": "Done",
-    "count": "30",
-    "value": "33",
-    "asset_reviewer": "Priya Singh"
+    "asset_location": "Folder F",
+    "asset_created": "2024-02-25",
+    "asset_updated": "2025-06-07"
   },
   {
     "id": 43,
     "asset_name": "Stakeholder Analysis",
-    "asset_type": "Research",
+    "asset_id": "A043",
+    "asset_category": "Research",
     "asset_status": "In Process",
-    "count": "11",
-    "value": "14",
-    "asset_reviewer": "Eddie Lake"
+    "asset_location": "Folder G",
+    "asset_created": "2024-02-26",
+    "asset_updated": "2025-05-25"
   },
   {
     "id": 44,
     "asset_name": "Environmental Impact Assessment",
-    "asset_type": "Research",
+    "asset_id": "A044",
+    "asset_category": "Research",
     "asset_status": "Done",
-    "count": "24",
-    "value": "27",
-    "asset_reviewer": "Assign asset_reviewer"
+    "asset_location": "Folder H",
+    "asset_created": "2024-02-27",
+    "asset_updated": "2025-06-06"
   },
   {
     "id": 45,
     "asset_name": "Intellectual Property Rights",
-    "asset_type": "Legal",
+    "asset_id": "A045",
+    "asset_category": "Legal",
     "asset_status": "In Process",
-    "count": "17",
-    "value": "20",
-    "asset_reviewer": "Sarah Johnson"
+    "asset_location": "Folder I",
+    "asset_created": "2024-02-28",
+    "asset_updated": "2025-05-24"
   },
   {
     "id": 46,
     "asset_name": "Customer Support Framework",
-    "asset_type": "Narrative",
+    "asset_id": "A046",
+    "asset_category": "Narrative",
     "asset_status": "Done",
-    "count": "22",
-    "value": "25",
-    "asset_reviewer": "Jamik Tashpulatov"
+    "asset_location": "Folder J",
+    "asset_created": "2024-02-29",
+    "asset_updated": "2025-06-05"
   },
   {
     "id": 47,
     "asset_name": "Version Control Strategy",
-    "asset_type": "Technical content",
+    "asset_id": "A047",
+    "asset_category": "Technical content",
     "asset_status": "In Process",
-    "count": "15",
-    "value": "18",
-    "asset_reviewer": "Assign asset_reviewer"
+    "asset_location": "Folder K",
+    "asset_created": "2024-03-01",
+    "asset_updated": "2025-05-23"
   },
   {
     "id": 48,
     "asset_name": "Continuous Integration Pipeline",
-    "asset_type": "Technical content",
+    "asset_id": "A048",
+    "asset_category": "Technical content",
     "asset_status": "Done",
-    "count": "26",
-    "value": "29",
-    "asset_reviewer": "Michael Chen"
+    "asset_location": "Folder L",
+    "asset_created": "2024-03-02",
+    "asset_updated": "2025-06-04"
   },
   {
     "id": 49,
     "asset_name": "Regulatory Compliance",
-    "asset_type": "Legal",
+    "asset_id": "A049",
+    "asset_category": "Legal",
     "asset_status": "In Process",
-    "count": "13",
-    "value": "16",
-    "asset_reviewer": "Assign asset_reviewer"
+    "asset_location": "Folder M",
+    "asset_created": "2024-03-03",
+    "asset_updated": "2025-05-22"
   },
   {
     "id": 50,
     "asset_name": "User Authentication System",
-    "asset_type": "Technical content",
+    "asset_id": "A050",
+    "asset_category": "Technical content",
     "asset_status": "Done",
-    "count": "28",
-    "value": "31",
-    "asset_reviewer": "Eddie Lake"
+    "asset_location": "Folder N",
+    "asset_created": "2024-03-04",
+    "asset_updated": "2025-06-03"
   },
   {
     "id": 51,
     "asset_name": "Data Analytics Framework",
-    "asset_type": "Technical content",
+    "asset_id": "A051",
+    "asset_category": "Technical content",
     "asset_status": "In Process",
-    "count": "21",
-    "value": "24",
-    "asset_reviewer": "Jamik Tashpulatov"
+    "asset_location": "Folder O",
+    "asset_created": "2024-03-05",
+    "asset_updated": "2025-05-21"
   },
   {
     "id": 52,
     "asset_name": "Cloud Infrastructure",
-    "asset_type": "Technical content",
+    "asset_id": "A052",
+    "asset_category": "Technical content",
     "asset_status": "Done",
-    "count": "16",
-    "value": "19",
-    "asset_reviewer": "Assign asset_reviewer"
+    "asset_location": "Folder P",
+    "asset_created": "2024-03-06",
+    "asset_updated": "2025-06-02"
   },
   {
     "id": 53,
     "asset_name": "Network Security Measures",
-    "asset_type": "Technical content",
+    "asset_id": "A053",
+    "asset_category": "Technical content",
     "asset_status": "In Process",
-    "count": "29",
-    "value": "32",
-    "asset_reviewer": "Lisa Wong"
+    "asset_location": "Folder Q",
+    "asset_created": "2024-03-07",
+    "asset_updated": "2025-05-20"
   },
   {
     "id": 54,
     "asset_name": "Project Timeline",
-    "asset_type": "Planning",
+    "asset_id": "A054",
+    "asset_category": "Planning",
     "asset_status": "Done",
-    "count": "14",
-    "value": "17",
-    "asset_reviewer": "Eddie Lake"
+    "asset_location": "Folder R",
+    "asset_created": "2024-03-08",
+    "asset_updated": "2025-06-01"
   },
   {
     "id": 55,
-    "asset_name": "Resource Allocation",
-    "asset_type": "Planning",
+    "asset_name": "Resource Alasset_location",
+    "asset_id": "A055",
+    "asset_category": "Planning",
     "asset_status": "In Process",
-    "count": "27",
-    "value": "30",
-    "asset_reviewer": "Assign asset_reviewer"
+    "asset_location": "Folder S",
+    "asset_created": "2024-03-09",
+    "asset_updated": "2025-05-19"
   },
   {
     "id": 56,
     "asset_name": "Team Structure and Roles",
-    "asset_type": "Planning",
+    "asset_id": "A056",
+    "asset_category": "Planning",
     "asset_status": "Done",
-    "count": "20",
-    "value": "23",
-    "asset_reviewer": "Jamik Tashpulatov"
+    "asset_location": "Folder T",
+    "asset_created": "2024-03-10",
+    "asset_updated": "2025-05-31"
   },
   {
     "id": 57,
     "asset_name": "Communication Protocols",
-    "asset_type": "Planning",
+    "asset_id": "A057",
+    "asset_category": "Planning",
     "asset_status": "In Process",
-    "count": "15",
-    "value": "18",
-    "asset_reviewer": "Assign asset_reviewer"
+    "asset_location": "Folder U",
+    "asset_created": "2024-03-11",
+    "asset_updated": "2025-05-18"
   },
   {
     "id": 58,
     "asset_name": "Success Metrics",
-    "asset_type": "Planning",
+    "asset_id": "A058",
+    "asset_category": "Planning",
     "asset_status": "Done",
-    "count": "30",
-    "value": "33",
-    "asset_reviewer": "Eddie Lake"
+    "asset_location": "Folder V",
+    "asset_created": "2024-03-12",
+    "asset_updated": "2025-05-30"
   },
   {
     "id": 59,
     "asset_name": "Internationalization Support",
-    "asset_type": "Technical content",
+    "asset_id": "A059",
+    "asset_category": "Technical content",
     "asset_status": "In Process",
-    "count": "23",
-    "value": "26",
-    "asset_reviewer": "Jamik Tashpulatov"
+    "asset_location": "Folder W",
+    "asset_created": "2024-03-13",
+    "asset_updated": "2025-05-17"
   },
   {
     "id": 60,
     "asset_name": "Backup and Recovery Procedures",
-    "asset_type": "Technical content",
+    "asset_id": "A060",
+    "asset_category": "Technical content",
     "asset_status": "Done",
-    "count": "18",
-    "value": "21",
-    "asset_reviewer": "Assign asset_reviewer"
+    "asset_location": "Folder X",
+    "asset_created": "2024-03-14",
+    "asset_updated": "2025-05-29"
   },
   {
     "id": 61,
     "asset_name": "Monitoring and Alerting System",
-    "asset_type": "Technical content",
+    "asset_id": "A061",
+    "asset_category": "Technical content",
     "asset_status": "In Process",
-    "count": "25",
-    "value": "28",
-    "asset_reviewer": "Daniel Park"
+    "asset_location": "Folder Y",
+    "asset_created": "2024-03-15",
+    "asset_updated": "2025-05-16"
   },
   {
     "id": 62,
     "asset_name": "Code Review Guidelines",
-    "asset_type": "Technical content",
+    "asset_id": "A062",
+    "asset_category": "Technical content",
     "asset_status": "Done",
-    "count": "12",
-    "value": "15",
-    "asset_reviewer": "Eddie Lake"
+    "asset_location": "Folder Z",
+    "asset_created": "2024-03-16",
+    "asset_updated": "2025-05-28"
   },
   {
     "id": 63,
     "asset_name": "Documentation Standards",
-    "asset_type": "Technical content",
+    "asset_id": "A063",
+    "asset_category": "Technical content",
     "asset_status": "In Process",
-    "count": "27",
-    "value": "30",
-    "asset_reviewer": "Jamik Tashpulatov"
+    "asset_location": "Folder A",
+    "asset_created": "2024-03-17",
+    "asset_updated": "2025-05-15"
   },
   {
     "id": 64,
     "asset_name": "Release Management Process",
-    "asset_type": "Planning",
+    "asset_id": "A064",
+    "asset_category": "Planning",
     "asset_status": "Done",
-    "count": "22",
-    "value": "25",
-    "asset_reviewer": "Assign asset_reviewer"
+    "asset_location": "Folder B",
+    "asset_created": "2024-03-18",
+    "asset_updated": "2025-05-27"
   },
   {
     "id": 65,
     "asset_name": "Feature Prioritization Matrix",
-    "asset_type": "Planning",
+    "asset_id": "A065",
+    "asset_category": "Planning",
     "asset_status": "In Process",
-    "count": "19",
-    "value": "22",
-    "asset_reviewer": "Emma Davis"
+    "asset_location": "Folder C",
+    "asset_created": "2024-03-19",
+    "asset_updated": "2025-05-14"
   },
   {
     "id": 66,
     "asset_name": "Technical Debt Assessment",
-    "asset_type": "Technical content",
+    "asset_id": "A066",
+    "asset_category": "Technical content",
     "asset_status": "Done",
-    "count": "24",
-    "value": "27",
-    "asset_reviewer": "Eddie Lake"
+    "asset_location": "Folder D",
+    "asset_created": "2024-03-20",
+    "asset_updated": "2025-05-26"
   },
   {
     "id": 67,
     "asset_name": "Capacity Planning",
-    "asset_type": "Planning",
+    "asset_id": "A067",
+    "asset_category": "Planning",
     "asset_status": "In Process",
-    "count": "21",
-    "value": "24",
-    "asset_reviewer": "Jamik Tashpulatov"
+    "asset_location": "Folder E",
+    "asset_created": "2024-03-21",
+    "asset_updated": "2025-05-13"
   },
   {
     "id": 68,
     "asset_name": "Service Level Agreements",
-    "asset_type": "Legal",
+    "asset_id": "A068",
+    "asset_category": "Legal",
     "asset_status": "Done",
-    "count": "26",
-    "value": "29",
-    "asset_reviewer": "Assign asset_reviewer"
+    "asset_location": "Folder F",
+    "asset_created": "2024-03-22",
+    "asset_updated": "2025-05-25"
+  },
+  {
+    "id": 69,
+    "asset_name": "User Stories",
+    "asset_id": "A069",
+    "asset_category": "Narrative",
+    "asset_status": "Done",
+    "asset_location": "Folder G",
+    "asset_created": "2024-03-23",
+    "asset_updated": "2025-05-24"
+  },
+  {
+    "id": 70,
+    "asset_name": "System Requirements",
+    "asset_id": "A070",
+    "asset_category": "Technical content",
+    "asset_status": "In Process",
+    "asset_location": "Folder H",
+    "asset_created": "2024-03-24",
+    "asset_updated": "2025-05-12"
+  },
+  {
+    "id": 71,
+    "asset_name": "UAT Plan",
+    "asset_id": "A071",
+    "asset_category": "Planning",
+    "asset_status": "Done",
+    "asset_location": "Folder I",
+    "asset_created": "2024-03-25",
+    "asset_updated": "2025-05-23"
+  },
+  {
+    "id": 72,
+    "asset_name": "Training Manuals",
+    "asset_id": "A072",
+    "asset_category": "Document",
+    "asset_status": "In Process",
+    "asset_location": "Folder J",
+    "asset_created": "2024-03-26",
+    "asset_updated": "2025-05-11"
+  },
+  {
+    "id": 73,
+    "asset_name": "Deployment Checklist",
+    "asset_id": "A073",
+    "asset_category": "Planning",
+    "asset_status": "Done",
+    "asset_location": "Folder K",
+    "asset_created": "2024-03-27",
+    "asset_updated": "2025-05-22"
+  },
+  {
+    "id": 74,
+    "asset_name": "Migration Strategy",
+    "asset_id": "A074",
+    "asset_category": "Planning",
+    "asset_status": "In Process",
+    "asset_location": "Folder L",
+    "asset_created": "2024-03-28",
+    "asset_updated": "2025-05-10"
+  },
+  {
+    "id": 75,
+    "asset_name": "Post-Implementation Review",
+    "asset_id": "A075",
+    "asset_category": "Document",
+    "asset_status": "Done",
+    "asset_location": "Folder M",
+    "asset_created": "2024-03-29",
+    "asset_updated": "2025-05-21"
+  },
+  {
+    "id": 76,
+    "asset_name": "Software Licenses",
+    "asset_id": "A076",
+    "asset_category": "Legal",
+    "asset_status": "In Process",
+    "asset_location": "Folder N",
+    "asset_created": "2024-03-30",
+    "asset_updated": "2025-05-09"
+  },
+  {
+    "id": 77,
+    "asset_name": "Hardware Specifications",
+    "asset_id": "A077",
+    "asset_category": "Technical content",
+    "asset_status": "Done",
+    "asset_location": "Folder O",
+    "asset_created": "2024-03-31",
+    "asset_updated": "2025-05-20"
+  },
+  {
+    "id": 78,
+    "asset_name": "Network Diagram",
+    "asset_id": "A078",
+    "asset_category": "Visual",
+    "asset_status": "In Process",
+    "asset_location": "Folder P",
+    "asset_created": "2024-04-01",
+    "asset_updated": "2025-05-08"
+  },
+  {
+    "id": 79,
+    "asset_name": "Security Audit Report",
+    "asset_id": "A079",
+    "asset_category": "Document",
+    "asset_status": "Done",
+    "asset_location": "Folder Q",
+    "asset_created": "2024-04-02",
+    "asset_updated": "2025-05-19"
+  },
+  {
+    "id": 80,
+    "asset_name": "Environmental Requirements",
+    "asset_id": "A080",
+    "asset_category": "Technical content",
+    "asset_status": "In Process",
+    "asset_location": "Folder R",
+    "asset_created": "2024-04-03",
+    "asset_updated": "2025-05-07"
+  },
+  {
+    "id": 81,
+    "asset_name": "User Acceptance Testing Results",
+    "asset_id": "A081",
+    "asset_category": "Document",
+    "asset_status": "Done",
+    "asset_location": "Folder S",
+    "asset_created": "2024-04-04",
+    "asset_updated": "2025-05-18"
+  },
+  {
+    "id": 82,
+    "asset_name": "Performance Test Results",
+    "asset_id": "A082",
+    "asset_category": "Document",
+    "asset_status": "In Process",
+    "asset_location": "Folder T",
+    "asset_created": "2024-04-05",
+    "asset_updated": "2025-05-06"
+  },
+  {
+    "id": 83,
+    "asset_name": "System Integration Document",
+    "asset_id": "A083",
+    "asset_category": "Technical content",
+    "asset_status": "Done",
+    "asset_location": "Folder U",
+    "asset_created": "2024-04-06",
+    "asset_updated": "2025-05-17"
+  },
+  {
+    "id": 84,
+    "asset_name": "Change Management Plan",
+    "asset_id": "A084",
+    "asset_category": "Planning",
+    "asset_status": "In Process",
+    "asset_location": "Folder V",
+    "asset_created": "2024-04-07",
+    "asset_updated": "2025-05-05"
+  },
+  {
+    "id": 85,
+    "asset_name": "Support Agreements",
+    "asset_id": "A085",
+    "asset_category": "Legal",
+    "asset_status": "Done",
+    "asset_location": "Folder W",
+    "asset_created": "2024-04-08",
+    "asset_updated": "2025-05-16"
+  },
+  {
+    "id": 86,
+    "asset_name": "Source Code Repository",
+    "asset_id": "A086",
+    "asset_category": "Technical content",
+    "asset_status": "In Process",
+    "asset_location": "Folder X",
+    "asset_created": "2024-04-09",
+    "asset_updated": "2025-05-04"
+  },
+  {
+    "id": 87,
+    "asset_name": "Configuration Management Plan",
+    "asset_id": "A087",
+    "asset_category": "Planning",
+    "asset_status": "Done",
+    "asset_location": "Folder Y",
+    "asset_created": "2024-04-10",
+    "asset_updated": "2025-05-15"
+  },
+  {
+    "id": 88,
+    "asset_name": "Asset Inventory",
+    "asset_id": "A088",
+    "asset_category": "Document",
+    "asset_status": "In Process",
+    "asset_location": "Folder Z",
+    "asset_created": "2024-04-11",
+    "asset_updated": "2025-05-03"
+  },
+  {
+    "id": 89,
+    "asset_name": "Compliance Audit Report",
+    "asset_id": "A089",
+    "asset_category": "Document",
+    "asset_status": "Done",
+    "asset_location": "Folder A",
+    "asset_created": "2024-04-12",
+    "asset_updated": "2025-05-14"
+  },
+  {
+    "id": 90,
+    "asset_name": "Financial Projections",
+    "asset_id": "A090",
+    "asset_category": "Financial",
+    "asset_status": "In Process",
+    "asset_location": "Folder B",
+    "asset_created": "2024-04-13",
+    "asset_updated": "2025-05-02"
+  },
+  {
+    "id": 91,
+    "asset_name": "Marketing Strategy",
+    "asset_id": "A091",
+    "asset_category": "Planning",
+    "asset_status": "Done",
+    "asset_location": "Folder C",
+    "asset_created": "2024-04-14",
+    "asset_updated": "2025-05-13"
+  },
+  {
+    "id": 92,
+    "asset_name": "Sales Forecast",
+    "asset_id": "A092",
+    "asset_category": "Financial",
+    "asset_status": "In Process",
+    "asset_location": "Folder D",
+    "asset_created": "2024-04-15",
+    "asset_updated": "2025-05-01"
+  },
+  {
+    "id": 93,
+    "asset_name": "Brand Guidelines",
+    "asset_id": "A093",
+    "asset_category": "Document",
+    "asset_status": "Done",
+    "asset_location": "Folder E",
+    "asset_created": "2024-04-16",
+    "asset_updated": "2025-05-12"
+  },
+  {
+    "id": 94,
+    "asset_name": "Public Relations Plan",
+    "asset_id": "A094",
+    "asset_category": "Planning",
+    "asset_status": "In Process",
+    "asset_location": "Folder F",
+    "asset_created": "2024-04-17",
+    "asset_updated": "2025-04-30"
+  },
+  {
+    "id": 95,
+    "asset_name": "Legal Disclaimers",
+    "asset_id": "A095",
+    "asset_category": "Legal",
+    "asset_status": "Done",
+    "asset_location": "Folder G",
+    "asset_created": "2024-04-18",
+    "asset_updated": "2025-05-11"
+  },
+  {
+    "id": 96,
+    "asset_name": "Patent Applications",
+    "asset_id": "A096",
+    "asset_category": "Legal",
+    "asset_status": "In Process",
+    "asset_location": "Folder H",
+    "asset_created": "2024-04-19",
+    "asset_updated": "2025-04-29"
+  },
+  {
+    "id": 97,
+    "asset_name": "Trademark Registrations",
+    "asset_id": "A097",
+    "asset_category": "Legal",
+    "asset_status": "Done",
+    "asset_location": "Folder I",
+    "asset_created": "2024-04-20",
+    "asset_updated": "2025-05-10"
+  },
+  {
+    "id": 98,
+    "asset_name": "Contract Templates",
+    "asset_id": "A098",
+    "asset_category": "Legal",
+    "asset_status": "In Process",
+    "asset_location": "Folder J",
+    "asset_created": "2024-04-21",
+    "asset_updated": "2025-04-28"
+  },
+  {
+    "id": 99,
+    "asset_name": "Employee Handbook",
+    "asset_id": "A099",
+    "asset_category": "Document",
+    "asset_status": "Done",
+    "asset_location": "Folder K",
+    "asset_created": "2024-04-22",
+    "asset_updated": "2025-05-09"
+  },
+  {
+    "id": 100,
+    "asset_name": "HR Policies",
+    "asset_id": "A100",
+    "asset_category": "Document",
+    "asset_status": "In Process",
+    "asset_location": "Folder L",
+    "asset_created": "2024-04-23",
+    "asset_updated": "2025-04-27"
   }
 ]
