@@ -1,614 +1,614 @@
 [
   {
     "id": 1,
-    "asset": "Cover page",
-    "type": "Cover page",
-    "status": "In Process",
-    "target": "18",
-    "limit": "5",
-    "reviewer": "Eddie Lake"
+    "asset_name": "Cover page",
+    "asset_type": "Cover page",
+    "asset_status": "In Process",
+    "count": "18",
+    "value": "5",
+    "asset_reviewer": "Eddie Lake"
   },
   {
     "id": 2,
-    "asset": "Table of contents",
-    "type": "Table of contents",
-    "status": "Done",
-    "target": "29",
-    "limit": "24",
-    "reviewer": "Eddie Lake"
+    "asset_name": "Table of contents",
+    "asset_type": "Table of contents",
+    "asset_status": "Done",
+    "count": "29",
+    "value": "24",
+    "asset_reviewer": "Eddie Lake"
   },
   {
     "id": 3,
-    "asset": "Executive summary",
-    "type": "Narrative",
-    "status": "Done",
-    "target": "10",
-    "limit": "13",
-    "reviewer": "Eddie Lake"
+    "asset_name": "Executive summary",
+    "asset_type": "Narrative",
+    "asset_status": "Done",
+    "count": "10",
+    "value": "13",
+    "asset_reviewer": "Eddie Lake"
   },
   {
     "id": 4,
-    "asset": "Technical approach",
-    "type": "Narrative",
-    "status": "Done",
-    "target": "27",
-    "limit": "23",
-    "reviewer": "Jamik Tashpulatov"
+    "asset_name": "Technical approach",
+    "asset_type": "Narrative",
+    "asset_status": "Done",
+    "count": "27",
+    "value": "23",
+    "asset_reviewer": "Jamik Tashpulatov"
   },
   {
     "id": 5,
-    "asset": "Design",
-    "type": "Narrative",
-    "status": "In Process",
-    "target": "2",
-    "limit": "16",
-    "reviewer": "Jamik Tashpulatov"
+    "asset_name": "Design",
+    "asset_type": "Narrative",
+    "asset_status": "In Process",
+    "count": "2",
+    "value": "16",
+    "asset_reviewer": "Jamik Tashpulatov"
   },
   {
     "id": 6,
-    "asset": "Capabilities",
-    "type": "Narrative",
-    "status": "In Process",
-    "target": "20",
-    "limit": "8",
-    "reviewer": "Jamik Tashpulatov"
+    "asset_name": "Capabilities",
+    "asset_type": "Narrative",
+    "asset_status": "In Process",
+    "count": "20",
+    "value": "8",
+    "asset_reviewer": "Jamik Tashpulatov"
   },
   {
     "id": 7,
-    "asset": "Integration with existing systems",
-    "type": "Narrative",
-    "status": "In Process",
-    "target": "19",
-    "limit": "21",
-    "reviewer": "Jamik Tashpulatov"
+    "asset_name": "Integration with existing systems",
+    "asset_type": "Narrative",
+    "asset_status": "In Process",
+    "count": "19",
+    "value": "21",
+    "asset_reviewer": "Jamik Tashpulatov"
   },
   {
     "id": 8,
-    "asset": "Innovation and Advantages",
-    "type": "Narrative",
-    "status": "Done",
-    "target": "25",
-    "limit": "26",
-    "reviewer": "Assign reviewer"
+    "asset_name": "Innovation and Advantages",
+    "asset_type": "Narrative",
+    "asset_status": "Done",
+    "count": "25",
+    "value": "26",
+    "asset_reviewer": "Assign asset_reviewer"
   },
   {
     "id": 9,
-    "asset": "Overview of EMR's Innovative Solutions",
-    "type": "Technical content",
-    "status": "Done",
-    "target": "7",
-    "limit": "23",
-    "reviewer": "Assign reviewer"
+    "asset_name": "Overview of EMR's Innovative Solutions",
+    "asset_type": "Technical content",
+    "asset_status": "Done",
+    "count": "7",
+    "value": "23",
+    "asset_reviewer": "Assign asset_reviewer"
   },
   {
     "id": 10,
-    "asset": "Advanced Algorithms and Machine Learning",
-    "type": "Narrative",
-    "status": "Done",
-    "target": "30",
-    "limit": "28",
-    "reviewer": "Assign reviewer"
+    "asset_name": "Advanced Algorithms and Machine Learning",
+    "asset_type": "Narrative",
+    "asset_status": "Done",
+    "count": "30",
+    "value": "28",
+    "asset_reviewer": "Assign asset_reviewer"
   },
   {
     "id": 11,
-    "asset": "Adaptive Communication Protocols",
-    "type": "Narrative",
-    "status": "Done",
-    "target": "9",
-    "limit": "31",
-    "reviewer": "Assign reviewer"
+    "asset_name": "Adaptive Communication Protocols",
+    "asset_type": "Narrative",
+    "asset_status": "Done",
+    "count": "9",
+    "value": "31",
+    "asset_reviewer": "Assign asset_reviewer"
   },
   {
     "id": 12,
-    "asset": "Advantages Over Current Technologies",
-    "type": "Narrative",
-    "status": "Done",
-    "target": "12",
-    "limit": "0",
-    "reviewer": "Assign reviewer"
+    "asset_name": "Advantages Over Current Technologies",
+    "asset_type": "Narrative",
+    "asset_status": "Done",
+    "count": "12",
+    "value": "0",
+    "asset_reviewer": "Assign asset_reviewer"
   },
   {
     "id": 13,
-    "asset": "Past Performance",
-    "type": "Narrative",
-    "status": "Done",
-    "target": "22",
-    "limit": "33",
-    "reviewer": "Assign reviewer"
+    "asset_name": "Past Performance",
+    "asset_type": "Narrative",
+    "asset_status": "Done",
+    "count": "22",
+    "value": "33",
+    "asset_reviewer": "Assign asset_reviewer"
   },
   {
     "id": 14,
-    "asset": "Customer Feedback and Satisfaction Levels",
-    "type": "Narrative",
-    "status": "Done",
-    "target": "15",
-    "limit": "34",
-    "reviewer": "Assign reviewer"
+    "asset_name": "Customer Feedback and Satisfaction Levels",
+    "asset_type": "Narrative",
+    "asset_status": "Done",
+    "count": "15",
+    "value": "34",
+    "asset_reviewer": "Assign asset_reviewer"
   },
   {
     "id": 15,
-    "asset": "Implementation Challenges and Solutions",
-    "type": "Narrative",
-    "status": "Done",
-    "target": "3",
-    "limit": "35",
-    "reviewer": "Assign reviewer"
+    "asset_name": "Implementation Challenges and Solutions",
+    "asset_type": "Narrative",
+    "asset_status": "Done",
+    "count": "3",
+    "value": "35",
+    "asset_reviewer": "Assign asset_reviewer"
   },
   {
     "id": 16,
-    "asset": "Security Measures and Data Protection Policies",
-    "type": "Narrative",
-    "status": "In Process",
-    "target": "6",
-    "limit": "36",
-    "reviewer": "Assign reviewer"
+    "asset_name": "Security Measures and Data Protection Policies",
+    "asset_type": "Narrative",
+    "asset_status": "In Process",
+    "count": "6",
+    "value": "36",
+    "asset_reviewer": "Assign asset_reviewer"
   },
   {
     "id": 17,
-    "asset": "Scalability and Future Proofing",
-    "type": "Narrative",
-    "status": "Done",
-    "target": "4",
-    "limit": "37",
-    "reviewer": "Assign reviewer"
+    "asset_name": "Scalability and Future Proofing",
+    "asset_type": "Narrative",
+    "asset_status": "Done",
+    "count": "4",
+    "value": "37",
+    "asset_reviewer": "Assign asset_reviewer"
   },
   {
     "id": 18,
-    "asset": "Cost-Benefit Analysis",
-    "type": "Plain language",
-    "status": "Done",
-    "target": "14",
-    "limit": "38",
-    "reviewer": "Assign reviewer"
+    "asset_name": "Cost-Benefit Analysis",
+    "asset_type": "Plain language",
+    "asset_status": "Done",
+    "count": "14",
+    "value": "38",
+    "asset_reviewer": "Assign asset_reviewer"
   },
   {
     "id": 19,
-    "asset": "User Training and Onboarding Experience",
-    "type": "Narrative",
-    "status": "Done",
-    "target": "17",
-    "limit": "39",
-    "reviewer": "Assign reviewer"
+    "asset_name": "User Training and Onboarding Experience",
+    "asset_type": "Narrative",
+    "asset_status": "Done",
+    "count": "17",
+    "value": "39",
+    "asset_reviewer": "Assign asset_reviewer"
   },
   {
     "id": 20,
-    "asset": "Future Development Roadmap",
-    "type": "Narrative",
-    "status": "Done",
-    "target": "11",
-    "limit": "40",
-    "reviewer": "Assign reviewer"
+    "asset_name": "Future Development Roadmap",
+    "asset_type": "Narrative",
+    "asset_status": "Done",
+    "count": "11",
+    "value": "40",
+    "asset_reviewer": "Assign asset_reviewer"
   },
   {
     "id": 21,
-    "asset": "System Architecture Overview",
-    "type": "Technical content",
-    "status": "In Process",
-    "target": "24",
-    "limit": "18",
-    "reviewer": "Maya Johnson"
+    "asset_name": "System Architecture Overview",
+    "asset_type": "Technical content",
+    "asset_status": "In Process",
+    "count": "24",
+    "value": "18",
+    "asset_reviewer": "Maya Johnson"
   },
   {
     "id": 22,
-    "asset": "Risk Management Plan",
-    "type": "Narrative",
-    "status": "Done",
-    "target": "15",
-    "limit": "22",
-    "reviewer": "Carlos Rodriguez"
+    "asset_name": "Risk Management Plan",
+    "asset_type": "Narrative",
+    "asset_status": "Done",
+    "count": "15",
+    "value": "22",
+    "asset_reviewer": "Carlos Rodriguez"
   },
   {
     "id": 23,
-    "asset": "Compliance Documentation",
-    "type": "Legal",
-    "status": "In Process",
-    "target": "31",
-    "limit": "27",
-    "reviewer": "Sarah Chen"
+    "asset_name": "Compliance Documentation",
+    "asset_type": "Legal",
+    "asset_status": "In Process",
+    "count": "31",
+    "value": "27",
+    "asset_reviewer": "Sarah Chen"
   },
   {
     "id": 24,
-    "asset": "API Documentation",
-    "type": "Technical content",
-    "status": "Done",
-    "target": "8",
-    "limit": "12",
-    "reviewer": "Raj Patel"
+    "asset_name": "API Documentation",
+    "asset_type": "Technical content",
+    "asset_status": "Done",
+    "count": "8",
+    "value": "12",
+    "asset_reviewer": "Raj Patel"
   },
   {
     "id": 25,
-    "asset": "User Interface Mockups",
-    "type": "Visual",
-    "status": "In Process",
-    "target": "19",
-    "limit": "25",
-    "reviewer": "Leila Ahmadi"
+    "asset_name": "User Interface Mockups",
+    "asset_type": "Visual",
+    "asset_status": "In Process",
+    "count": "19",
+    "value": "25",
+    "asset_reviewer": "Leila Ahmadi"
   },
   {
     "id": 26,
-    "asset": "Database Schema",
-    "type": "Technical content",
-    "status": "Done",
-    "target": "22",
-    "limit": "20",
-    "reviewer": "Thomas Wilson"
+    "asset_name": "Database Schema",
+    "asset_type": "Technical content",
+    "asset_status": "Done",
+    "count": "22",
+    "value": "20",
+    "asset_reviewer": "Thomas Wilson"
   },
   {
     "id": 27,
-    "asset": "Testing Methodology",
-    "type": "Technical content",
-    "status": "In Process",
-    "target": "17",
-    "limit": "14",
-    "reviewer": "Assign reviewer"
+    "asset_name": "Testing Methodology",
+    "asset_type": "Technical content",
+    "asset_status": "In Process",
+    "count": "17",
+    "value": "14",
+    "asset_reviewer": "Assign asset_reviewer"
   },
   {
     "id": 28,
-    "asset": "Deployment Strategy",
-    "type": "Narrative",
-    "status": "Done",
-    "target": "26",
-    "limit": "30",
-    "reviewer": "Eddie Lake"
+    "asset_name": "Deployment Strategy",
+    "asset_type": "Narrative",
+    "asset_status": "Done",
+    "count": "26",
+    "value": "30",
+    "asset_reviewer": "Eddie Lake"
   },
   {
     "id": 29,
-    "asset": "Budget Breakdown",
-    "type": "Financial",
-    "status": "In Process",
-    "target": "13",
-    "limit": "16",
-    "reviewer": "Jamik Tashpulatov"
+    "asset_name": "Budget Breakdown",
+    "asset_type": "Financial",
+    "asset_status": "In Process",
+    "count": "13",
+    "value": "16",
+    "asset_reviewer": "Jamik Tashpulatov"
   },
   {
     "id": 30,
-    "asset": "Market Analysis",
-    "type": "Research",
-    "status": "Done",
-    "target": "29",
-    "limit": "32",
-    "reviewer": "Sophia Martinez"
+    "asset_name": "Market Analysis",
+    "asset_type": "Research",
+    "asset_status": "Done",
+    "count": "29",
+    "value": "32",
+    "asset_reviewer": "Sophia Martinez"
   },
   {
     "id": 31,
-    "asset": "Competitor Comparison",
-    "type": "Research",
-    "status": "In Process",
-    "target": "21",
-    "limit": "19",
-    "reviewer": "Assign reviewer"
+    "asset_name": "Competitor Comparison",
+    "asset_type": "Research",
+    "asset_status": "In Process",
+    "count": "21",
+    "value": "19",
+    "asset_reviewer": "Assign asset_reviewer"
   },
   {
     "id": 32,
-    "asset": "Maintenance Plan",
-    "type": "Technical content",
-    "status": "Done",
-    "target": "16",
-    "limit": "23",
-    "reviewer": "Alex Thompson"
+    "asset_name": "Maintenance Plan",
+    "asset_type": "Technical content",
+    "asset_status": "Done",
+    "count": "16",
+    "value": "23",
+    "asset_reviewer": "Alex Thompson"
   },
   {
     "id": 33,
-    "asset": "User Personas",
-    "type": "Research",
-    "status": "In Process",
-    "target": "27",
-    "limit": "24",
-    "reviewer": "Nina Patel"
+    "asset_name": "User Personas",
+    "asset_type": "Research",
+    "asset_status": "In Process",
+    "count": "27",
+    "value": "24",
+    "asset_reviewer": "Nina Patel"
   },
   {
     "id": 34,
-    "asset": "Accessibility Compliance",
-    "type": "Legal",
-    "status": "Done",
-    "target": "18",
-    "limit": "21",
-    "reviewer": "Assign reviewer"
+    "asset_name": "Accessibility Compliance",
+    "asset_type": "Legal",
+    "asset_status": "Done",
+    "count": "18",
+    "value": "21",
+    "asset_reviewer": "Assign asset_reviewer"
   },
   {
     "id": 35,
-    "asset": "Performance Metrics",
-    "type": "Technical content",
-    "status": "In Process",
-    "target": "23",
-    "limit": "26",
-    "reviewer": "David Kim"
+    "asset_name": "Performance Metrics",
+    "asset_type": "Technical content",
+    "asset_status": "In Process",
+    "count": "23",
+    "value": "26",
+    "asset_reviewer": "David Kim"
   },
   {
     "id": 36,
-    "asset": "Disaster Recovery Plan",
-    "type": "Technical content",
-    "status": "Done",
-    "target": "14",
-    "limit": "17",
-    "reviewer": "Jamik Tashpulatov"
+    "asset_name": "Disaster Recovery Plan",
+    "asset_type": "Technical content",
+    "asset_status": "Done",
+    "count": "14",
+    "value": "17",
+    "asset_reviewer": "Jamik Tashpulatov"
   },
   {
     "id": 37,
-    "asset": "Third-party Integrations",
-    "type": "Technical content",
-    "status": "In Process",
-    "target": "25",
-    "limit": "28",
-    "reviewer": "Eddie Lake"
+    "asset_name": "Third-party Integrations",
+    "asset_type": "Technical content",
+    "asset_status": "In Process",
+    "count": "25",
+    "value": "28",
+    "asset_reviewer": "Eddie Lake"
   },
   {
     "id": 38,
-    "asset": "User Feedback Summary",
-    "type": "Research",
-    "status": "Done",
-    "target": "20",
-    "limit": "15",
-    "reviewer": "Assign reviewer"
+    "asset_name": "User Feedback Summary",
+    "asset_type": "Research",
+    "asset_status": "Done",
+    "count": "20",
+    "value": "15",
+    "asset_reviewer": "Assign asset_reviewer"
   },
   {
     "id": 39,
-    "asset": "Localization Strategy",
-    "type": "Narrative",
-    "status": "In Process",
-    "target": "12",
-    "limit": "19",
-    "reviewer": "Maria Garcia"
+    "asset_name": "Localization Strategy",
+    "asset_type": "Narrative",
+    "asset_status": "In Process",
+    "count": "12",
+    "value": "19",
+    "asset_reviewer": "Maria Garcia"
   },
   {
     "id": 40,
-    "asset": "Mobile Compatibility",
-    "type": "Technical content",
-    "status": "Done",
-    "target": "28",
-    "limit": "31",
-    "reviewer": "James Wilson"
+    "asset_name": "Mobile Compatibility",
+    "asset_type": "Technical content",
+    "asset_status": "Done",
+    "count": "28",
+    "value": "31",
+    "asset_reviewer": "James Wilson"
   },
   {
     "id": 41,
-    "asset": "Data Migration Plan",
-    "type": "Technical content",
-    "status": "In Process",
-    "target": "19",
-    "limit": "22",
-    "reviewer": "Assign reviewer"
+    "asset_name": "Data Migration Plan",
+    "asset_type": "Technical content",
+    "asset_status": "In Process",
+    "count": "19",
+    "value": "22",
+    "asset_reviewer": "Assign asset_reviewer"
   },
   {
     "id": 42,
-    "asset": "Quality Assurance Protocols",
-    "type": "Technical content",
-    "status": "Done",
-    "target": "30",
-    "limit": "33",
-    "reviewer": "Priya Singh"
+    "asset_name": "Quality Assurance Protocols",
+    "asset_type": "Technical content",
+    "asset_status": "Done",
+    "count": "30",
+    "value": "33",
+    "asset_reviewer": "Priya Singh"
   },
   {
     "id": 43,
-    "asset": "Stakeholder Analysis",
-    "type": "Research",
-    "status": "In Process",
-    "target": "11",
-    "limit": "14",
-    "reviewer": "Eddie Lake"
+    "asset_name": "Stakeholder Analysis",
+    "asset_type": "Research",
+    "asset_status": "In Process",
+    "count": "11",
+    "value": "14",
+    "asset_reviewer": "Eddie Lake"
   },
   {
     "id": 44,
-    "asset": "Environmental Impact Assessment",
-    "type": "Research",
-    "status": "Done",
-    "target": "24",
-    "limit": "27",
-    "reviewer": "Assign reviewer"
+    "asset_name": "Environmental Impact Assessment",
+    "asset_type": "Research",
+    "asset_status": "Done",
+    "count": "24",
+    "value": "27",
+    "asset_reviewer": "Assign asset_reviewer"
   },
   {
     "id": 45,
-    "asset": "Intellectual Property Rights",
-    "type": "Legal",
-    "status": "In Process",
-    "target": "17",
-    "limit": "20",
-    "reviewer": "Sarah Johnson"
+    "asset_name": "Intellectual Property Rights",
+    "asset_type": "Legal",
+    "asset_status": "In Process",
+    "count": "17",
+    "value": "20",
+    "asset_reviewer": "Sarah Johnson"
   },
   {
     "id": 46,
-    "asset": "Customer Support Framework",
-    "type": "Narrative",
-    "status": "Done",
-    "target": "22",
-    "limit": "25",
-    "reviewer": "Jamik Tashpulatov"
+    "asset_name": "Customer Support Framework",
+    "asset_type": "Narrative",
+    "asset_status": "Done",
+    "count": "22",
+    "value": "25",
+    "asset_reviewer": "Jamik Tashpulatov"
   },
   {
     "id": 47,
-    "asset": "Version Control Strategy",
-    "type": "Technical content",
-    "status": "In Process",
-    "target": "15",
-    "limit": "18",
-    "reviewer": "Assign reviewer"
+    "asset_name": "Version Control Strategy",
+    "asset_type": "Technical content",
+    "asset_status": "In Process",
+    "count": "15",
+    "value": "18",
+    "asset_reviewer": "Assign asset_reviewer"
   },
   {
     "id": 48,
-    "asset": "Continuous Integration Pipeline",
-    "type": "Technical content",
-    "status": "Done",
-    "target": "26",
-    "limit": "29",
-    "reviewer": "Michael Chen"
+    "asset_name": "Continuous Integration Pipeline",
+    "asset_type": "Technical content",
+    "asset_status": "Done",
+    "count": "26",
+    "value": "29",
+    "asset_reviewer": "Michael Chen"
   },
   {
     "id": 49,
-    "asset": "Regulatory Compliance",
-    "type": "Legal",
-    "status": "In Process",
-    "target": "13",
-    "limit": "16",
-    "reviewer": "Assign reviewer"
+    "asset_name": "Regulatory Compliance",
+    "asset_type": "Legal",
+    "asset_status": "In Process",
+    "count": "13",
+    "value": "16",
+    "asset_reviewer": "Assign asset_reviewer"
   },
   {
     "id": 50,
-    "asset": "User Authentication System",
-    "type": "Technical content",
-    "status": "Done",
-    "target": "28",
-    "limit": "31",
-    "reviewer": "Eddie Lake"
+    "asset_name": "User Authentication System",
+    "asset_type": "Technical content",
+    "asset_status": "Done",
+    "count": "28",
+    "value": "31",
+    "asset_reviewer": "Eddie Lake"
   },
   {
     "id": 51,
-    "asset": "Data Analytics Framework",
-    "type": "Technical content",
-    "status": "In Process",
-    "target": "21",
-    "limit": "24",
-    "reviewer": "Jamik Tashpulatov"
+    "asset_name": "Data Analytics Framework",
+    "asset_type": "Technical content",
+    "asset_status": "In Process",
+    "count": "21",
+    "value": "24",
+    "asset_reviewer": "Jamik Tashpulatov"
   },
   {
     "id": 52,
-    "asset": "Cloud Infrastructure",
-    "type": "Technical content",
-    "status": "Done",
-    "target": "16",
-    "limit": "19",
-    "reviewer": "Assign reviewer"
+    "asset_name": "Cloud Infrastructure",
+    "asset_type": "Technical content",
+    "asset_status": "Done",
+    "count": "16",
+    "value": "19",
+    "asset_reviewer": "Assign asset_reviewer"
   },
   {
     "id": 53,
-    "asset": "Network Security Measures",
-    "type": "Technical content",
-    "status": "In Process",
-    "target": "29",
-    "limit": "32",
-    "reviewer": "Lisa Wong"
+    "asset_name": "Network Security Measures",
+    "asset_type": "Technical content",
+    "asset_status": "In Process",
+    "count": "29",
+    "value": "32",
+    "asset_reviewer": "Lisa Wong"
   },
   {
     "id": 54,
-    "asset": "Project Timeline",
-    "type": "Planning",
-    "status": "Done",
-    "target": "14",
-    "limit": "17",
-    "reviewer": "Eddie Lake"
+    "asset_name": "Project Timeline",
+    "asset_type": "Planning",
+    "asset_status": "Done",
+    "count": "14",
+    "value": "17",
+    "asset_reviewer": "Eddie Lake"
   },
   {
     "id": 55,
-    "asset": "Resource Allocation",
-    "type": "Planning",
-    "status": "In Process",
-    "target": "27",
-    "limit": "30",
-    "reviewer": "Assign reviewer"
+    "asset_name": "Resource Allocation",
+    "asset_type": "Planning",
+    "asset_status": "In Process",
+    "count": "27",
+    "value": "30",
+    "asset_reviewer": "Assign asset_reviewer"
   },
   {
     "id": 56,
-    "asset": "Team Structure and Roles",
-    "type": "Planning",
-    "status": "Done",
-    "target": "20",
-    "limit": "23",
-    "reviewer": "Jamik Tashpulatov"
+    "asset_name": "Team Structure and Roles",
+    "asset_type": "Planning",
+    "asset_status": "Done",
+    "count": "20",
+    "value": "23",
+    "asset_reviewer": "Jamik Tashpulatov"
   },
   {
     "id": 57,
-    "asset": "Communication Protocols",
-    "type": "Planning",
-    "status": "In Process",
-    "target": "15",
-    "limit": "18",
-    "reviewer": "Assign reviewer"
+    "asset_name": "Communication Protocols",
+    "asset_type": "Planning",
+    "asset_status": "In Process",
+    "count": "15",
+    "value": "18",
+    "asset_reviewer": "Assign asset_reviewer"
   },
   {
     "id": 58,
-    "asset": "Success Metrics",
-    "type": "Planning",
-    "status": "Done",
-    "target": "30",
-    "limit": "33",
-    "reviewer": "Eddie Lake"
+    "asset_name": "Success Metrics",
+    "asset_type": "Planning",
+    "asset_status": "Done",
+    "count": "30",
+    "value": "33",
+    "asset_reviewer": "Eddie Lake"
   },
   {
     "id": 59,
-    "asset": "Internationalization Support",
-    "type": "Technical content",
-    "status": "In Process",
-    "target": "23",
-    "limit": "26",
-    "reviewer": "Jamik Tashpulatov"
+    "asset_name": "Internationalization Support",
+    "asset_type": "Technical content",
+    "asset_status": "In Process",
+    "count": "23",
+    "value": "26",
+    "asset_reviewer": "Jamik Tashpulatov"
   },
   {
     "id": 60,
-    "asset": "Backup and Recovery Procedures",
-    "type": "Technical content",
-    "status": "Done",
-    "target": "18",
-    "limit": "21",
-    "reviewer": "Assign reviewer"
+    "asset_name": "Backup and Recovery Procedures",
+    "asset_type": "Technical content",
+    "asset_status": "Done",
+    "count": "18",
+    "value": "21",
+    "asset_reviewer": "Assign asset_reviewer"
   },
   {
     "id": 61,
-    "asset": "Monitoring and Alerting System",
-    "type": "Technical content",
-    "status": "In Process",
-    "target": "25",
-    "limit": "28",
-    "reviewer": "Daniel Park"
+    "asset_name": "Monitoring and Alerting System",
+    "asset_type": "Technical content",
+    "asset_status": "In Process",
+    "count": "25",
+    "value": "28",
+    "asset_reviewer": "Daniel Park"
   },
   {
     "id": 62,
-    "asset": "Code Review Guidelines",
-    "type": "Technical content",
-    "status": "Done",
-    "target": "12",
-    "limit": "15",
-    "reviewer": "Eddie Lake"
+    "asset_name": "Code Review Guidelines",
+    "asset_type": "Technical content",
+    "asset_status": "Done",
+    "count": "12",
+    "value": "15",
+    "asset_reviewer": "Eddie Lake"
   },
   {
     "id": 63,
-    "asset": "Documentation Standards",
-    "type": "Technical content",
-    "status": "In Process",
-    "target": "27",
-    "limit": "30",
-    "reviewer": "Jamik Tashpulatov"
+    "asset_name": "Documentation Standards",
+    "asset_type": "Technical content",
+    "asset_status": "In Process",
+    "count": "27",
+    "value": "30",
+    "asset_reviewer": "Jamik Tashpulatov"
   },
   {
     "id": 64,
-    "asset": "Release Management Process",
-    "type": "Planning",
-    "status": "Done",
-    "target": "22",
-    "limit": "25",
-    "reviewer": "Assign reviewer"
+    "asset_name": "Release Management Process",
+    "asset_type": "Planning",
+    "asset_status": "Done",
+    "count": "22",
+    "value": "25",
+    "asset_reviewer": "Assign asset_reviewer"
   },
   {
     "id": 65,
-    "asset": "Feature Prioritization Matrix",
-    "type": "Planning",
-    "status": "In Process",
-    "target": "19",
-    "limit": "22",
-    "reviewer": "Emma Davis"
+    "asset_name": "Feature Prioritization Matrix",
+    "asset_type": "Planning",
+    "asset_status": "In Process",
+    "count": "19",
+    "value": "22",
+    "asset_reviewer": "Emma Davis"
   },
   {
     "id": 66,
-    "asset": "Technical Debt Assessment",
-    "type": "Technical content",
-    "status": "Done",
-    "target": "24",
-    "limit": "27",
-    "reviewer": "Eddie Lake"
+    "asset_name": "Technical Debt Assessment",
+    "asset_type": "Technical content",
+    "asset_status": "Done",
+    "count": "24",
+    "value": "27",
+    "asset_reviewer": "Eddie Lake"
   },
   {
     "id": 67,
-    "asset": "Capacity Planning",
-    "type": "Planning",
-    "status": "In Process",
-    "target": "21",
-    "limit": "24",
-    "reviewer": "Jamik Tashpulatov"
+    "asset_name": "Capacity Planning",
+    "asset_type": "Planning",
+    "asset_status": "In Process",
+    "count": "21",
+    "value": "24",
+    "asset_reviewer": "Jamik Tashpulatov"
   },
   {
     "id": 68,
-    "asset": "Service Level Agreements",
-    "type": "Legal",
-    "status": "Done",
-    "target": "26",
-    "limit": "29",
-    "reviewer": "Assign reviewer"
+    "asset_name": "Service Level Agreements",
+    "asset_type": "Legal",
+    "asset_status": "Done",
+    "count": "26",
+    "value": "29",
+    "asset_reviewer": "Assign asset_reviewer"
   }
 ]
