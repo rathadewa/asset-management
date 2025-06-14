@@ -1,5 +1,6 @@
+// src/app/asset/detail_asset/[assetId]/page.tsx
+
 import { AppSidebar } from "@/components/app-sidebar"
-import { Badge } from "@/components/ui/badge";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -8,23 +9,19 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator"
 import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar"
-import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 import path from "path";
 import { promises as fs } from "fs";
 import { notFound } from "next/navigation";
-import { IconCircleCheckFilled, IconLoader } from "@tabler/icons-react";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { ArrowRight, ChevronLeft, RefreshCcw, Trash } from "lucide-react";
+import { AssetDetailView } from "./asset-detail"; // Impor komponen Client baru kita
 
-type Asset = {
+// Ekspor tipe 'Asset' agar bisa diimpor oleh file lain
+export type Asset = {
   id: number;
   asset_name: string;
   asset_id: string;
@@ -35,13 +32,12 @@ type Asset = {
   asset_updated: string;
 };
 
+// Fungsi getAssetData tetap sama, berjalan di server
 async function getAssetData(id: string): Promise<Asset | undefined> {
   const filePath = path.join(process.cwd(), 'src', 'api', 'data.json');
-  
   try {
     const fileContents = await fs.readFile(filePath, 'utf8');
     const data: Asset[] = JSON.parse(fileContents);
-    
     const asset = data.find(item => item.id === Number(id));
     return asset;
   } catch (error) {
@@ -50,28 +46,13 @@ async function getAssetData(id: string): Promise<Asset | undefined> {
   }
 }
 
-function StatusBadge({ status }: { status: "In Process" | "Done" }) {
-  if (status === "Done") {
-    return <Badge variant="default" className="bg-green-600 text-md"> <IconCircleCheckFilled className="fill-wite-500 dark:fill-wite-400" /> Done</Badge>;
-  }
-  return <Badge variant="secondary" className="text-md"> <IconLoader /> In Process</Badge>;
-}
-
 export default async function DetailAssetPage({ params }: { params: { assetId: string } }) {
   const { assetId } = params; 
   const asset = await getAssetData(assetId);
 
   if (!asset) {
-    notFound();
+    notFound(); 
   }
-
-  const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString("id-ID", {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    });
-  };
 
   return (
     <SidebarProvider>
@@ -87,7 +68,7 @@ export default async function DetailAssetPage({ params }: { params: { assetId: s
             <Breadcrumb>
               <BreadcrumbList>
                 <BreadcrumbItem className="hidden md:block">
-                  <BreadcrumbLink href="#">
+                  <BreadcrumbLink href="/asset/list_asset">
                     Asset
                   </BreadcrumbLink>
                 </BreadcrumbItem>
@@ -103,56 +84,7 @@ export default async function DetailAssetPage({ params }: { params: { assetId: s
             <div className="flex flex-1 flex-col">
                 <div className="@container/main flex flex-1 flex-col gap-2">
                     <div className="flex flex-col gap-4 py-4 md:py-6">
-                      <Card className="mx-4">
-                        <CardHeader>
-                          <div className="flex justify-between items-start">
-                            <div>
-                              <CardTitle className="text-2xl md:text-3xl">{asset.asset_name}</CardTitle>
-                              <CardDescription className="mt-2 text-sm">
-                                Asset ID: <Badge variant="outline" className="text-sm">{asset.asset_id}</Badge>
-                              </CardDescription>
-                            </div>
-                            <StatusBadge status={asset.asset_status} />
-                          </div>
-                        </CardHeader>
-                        <CardContent>
-                          <Table>
-                            <TableBody>
-                              <TableRow>
-                                <TableCell className="font-medium text-muted-foreground">Category</TableCell>
-                                <TableCell>{asset.asset_category}</TableCell>
-                              </TableRow>
-                              <TableRow>
-                                <TableCell className="font-medium text-muted-foreground">Location</TableCell>
-                                <TableCell>{asset.asset_location}</TableCell>
-                              </TableRow>
-                              <TableRow>
-                                <TableCell className="font-medium text-muted-foreground">Created Date</TableCell>
-                                <TableCell>{formatDate(asset.asset_created)}</TableCell>
-                              </TableRow>
-                              <TableRow>
-                                <TableCell className="font-medium text-muted-foreground">Last Updated</TableCell>
-                                <TableCell>{formatDate(asset.asset_updated)}</TableCell>
-                              </TableRow>
-                            </TableBody>
-                          </Table>
-                        </CardContent>
-                        <div className="flex items-center justify-between px-4 lg:px-6">
-                          <div>
-                            <Link href="/asset/list_asset">
-                              <Button variant="secondary"><ChevronLeft/> List Asset </Button>
-                            </Link>
-                          </div>
-                          <div className="flex gap-2">
-                            <Link href="#">
-                              <Button variant="destructive"><Trash/>Delete</Button>
-                            </Link>
-                            <Link href="#">
-                              <Button><RefreshCcw/>Update</Button>
-                            </Link>
-                          </div>
-                        </div>
-                      </Card>
+                      <AssetDetailView asset={asset} />
                     </div>
                 </div>
             </div>
