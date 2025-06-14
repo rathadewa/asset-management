@@ -84,6 +84,8 @@ import { IconSelector, IconChevronUp } from '@tabler/icons-react';
 //   DialogTitle,
 //   DialogTrigger,
 // } from "@/components/ui/dialog"
+import Link from "next/link"
+import { DeleteConfirmationDialog } from "./delete-confirmation"
 
 export const schema = z.object({
   id: z.number(),
@@ -168,26 +170,43 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
   },
   {
     id: "actions",
-    cell: () => (
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button
-            variant="ghost"
-            className="data-[state=open]:bg-muted text-muted-foreground flex size-8"
-            size="icon"
-          >
-            <IconDotsVertical />
-            <span className="sr-only">Open menu</span>
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" className="w-32">
-          <DropdownMenuItem>View Detail</DropdownMenuItem>
-          <DropdownMenuItem>Update</DropdownMenuItem>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem variant="destructive">Delete</DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
-    ),
+    cell: ({ row }) => {
+      const handleDelete = () => {
+        console.log(`Menghapus aset dengan ID: ${row.original.id}`);
+        // await fetch(`/api/row.originals/${row.original.id}`, { method: 'DELETE' });
+        
+        alert(`Aset "${row.original.asset_name}" telah dihapus.`);
+      };
+      return(
+          <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button
+              variant="ghost"
+              className="data-[state=open]:bg-muted text-muted-foreground flex size-8"
+              size="icon"
+              >
+              <IconDotsVertical />
+              <span className="sr-only">Open menu</span>
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end" className="w-32">
+            <DropdownMenuItem asChild>
+                <Link href={`/asset/detail_asset/${row.original.id}`}>
+                  View Detail
+                </Link>
+              </DropdownMenuItem>
+            <DropdownMenuItem>
+                Update
+            </DropdownMenuItem>
+
+            <DropdownMenuSeparator />
+            <DeleteConfirmationDialog onConfirm={handleDelete}>
+              <DropdownMenuItem variant="destructive" onSelect={(e) => e.preventDefault()}>Delete</DropdownMenuItem>
+            </DeleteConfirmationDialog>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      )
+    },
   },
 ]
 
@@ -324,10 +343,12 @@ export function DataTable({
                 })}
             </DropdownMenuContent>
           </DropdownMenu>
-          <Button variant="outline" size="sm">
-            <IconPlus className="mr-2 h-4 w-4" /> {/* Added mr-2 */}
-            <span className="hidden lg:inline">Add Asset</span>
-          </Button>
+          <Link href="/asset/add_asset">
+            <Button variant="outline" size="sm">
+              <IconPlus className="mr-2 h-4 w-4" /> {/* Added mr-2 */}
+              <span className="hidden lg:inline">Add Asset</span>
+            </Button>
+          </Link>
         </div>
       </div>
       <div className="relative flex flex-col gap-4 overflow-auto px-4 lg:px-6">
@@ -478,3 +499,4 @@ export function DataTable({
     </div>
   )
 }
+

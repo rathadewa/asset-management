@@ -54,6 +54,10 @@ const data = {
           title: "List Asset",
           url: "/asset/list_asset",
         },
+        {
+          title: "Add Asset",
+          url: "/asset/add_asset",
+        },
       ],
     },
   ],
