@@ -26,7 +26,7 @@ async function getData() {
     return data;
   } catch (error) {
     console.error("Gagal memuat data aset:", error);
-    return []; // Kembalikan array kosong jika gagal agar aplikasi tidak crash
+    return [];
   }
 }
 

@@ -8,14 +8,14 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ChevronLeft, RefreshCcw, Trash } from "lucide-react";
 import { DeleteConfirmationDialog } from "@/components/delete-confirmation";
-import type { Asset } from "./page";
+import type { Asset } from "./types";
 
-function StatusBadge({ status }: { status: "In Process" | "Done" }) {
+function StatusBadge({ status }: { status: "Ready to Deployed" | "Deployed" }) {
 
-  if (status === "Done") {
-    return <Badge variant="default" className="bg-green-600 text-md gap-2 flex items-center"> <IconCircleCheckFilled className="fill-white" /> Done</Badge>;
+  if (status === "Deployed") {
+    return <Badge variant="default" className="bg-green-600 text-md gap-2 flex items-center"> <IconCircleCheckFilled className="fill-white" /> Deployed</Badge>;
   }
-  return <Badge variant="secondary" className="text-md gap-2 flex items-center"> <IconLoader /> In Process</Badge>;
+  return <Badge variant="secondary" className="text-md gap-2 flex items-center"> <IconLoader /> Ready to Deployed </Badge>;
 }
 
 export function AssetDetailView({ asset }: { asset: Asset }) {
@@ -79,7 +79,7 @@ export function AssetDetailView({ asset }: { asset: Asset }) {
           <DeleteConfirmationDialog onConfirm={handleDelete}>
             <Button variant="destructive" className="flex items-center gap-2"><Trash size={16}/>Delete</Button>
           </DeleteConfirmationDialog>
-          <Link href="#">
+          <Link href={`/asset/update_asset/${asset.id}`}>
             <Button className="flex items-center gap-2"><RefreshCcw size={16}/>Update</Button>
           </Link>
         </div>

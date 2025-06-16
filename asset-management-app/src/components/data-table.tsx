@@ -130,7 +130,7 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
       header: "Status",
       cell: ({ row }) => (
           <Badge variant="outline" className="text-muted-foreground px-1.5">
-        {row.original.asset_status === "Done" ? (
+        {row.original.asset_status === "Deployed" ? (
             <IconCircleCheckFilled className="fill-green-500 dark:fill-green-400" />
         ) : (
             <IconLoader />
@@ -182,18 +182,20 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="w-32">
-            <DropdownMenuItem asChild>
-                <Link href={`/asset/detail_asset/${row.original.id}`}>
-                  View Detail
-                </Link>
-              </DropdownMenuItem>
             <DropdownMenuItem>
-                Update
+              <Link href={`/asset/detail_asset/${row.original.id}`}>
+                View Detail
+              </Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <Link href={`/asset/update_asset/${row.original.id}`}>
+                  Update
+              </Link>
             </DropdownMenuItem>
 
             <DropdownMenuSeparator />
             <DeleteConfirmationDialog onConfirm={handleDelete}>
-              <DropdownMenuItem variant="destructive" onSelect={(e) => e.preventDefault()}>Delete</DropdownMenuItem>
+              <DropdownMenuItem className="cursor-pointer" variant="destructive" onSelect={(e) => e.preventDefault()}>Delete</DropdownMenuItem>
             </DeleteConfirmationDialog>
           </DropdownMenuContent>
         </DropdownMenu>
