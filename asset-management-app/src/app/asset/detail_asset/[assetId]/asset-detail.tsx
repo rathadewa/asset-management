@@ -69,7 +69,7 @@ export function AssetDetailView({ asset }: { asset: Asset }) {
           </TableBody>
         </Table>
       </CardContent>
-      <div className="flex items-center justify-between p-4 border-t">
+      <div className="flex items-center justify-between px-4 pt-4 border-t">
         <div>
           <Link href="/asset/list_asset">
             <Button variant="outline" className="flex items-center gap-2"><ChevronLeft size={16}/> List Asset </Button>

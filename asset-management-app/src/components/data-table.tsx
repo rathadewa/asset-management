@@ -76,14 +76,6 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import { IconSelector, IconChevronUp } from '@tabler/icons-react';
-// import {
-//   Dialog,
-//   DialogContent,
-//   DialogDescription,
-//   DialogHeader,
-//   DialogTitle,
-//   DialogTrigger,
-// } from "@/components/ui/dialog"
 import Link from "next/link"
 import { DeleteConfirmationDialog } from "./delete-confirmation"
 
@@ -316,7 +308,7 @@ export function DataTable({
                 <IconLayoutColumns />
                 <span className="hidden lg:inline">Customize Columns</span>
                 <span className="lg:hidden">Columns</span>
-                <IconChevronDown className="ml-2 h-4 w-4" /> {/* Added ml-2 */}
+                <IconChevronDown className="ml-2 h-4 w-4" /> 
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-56">
@@ -337,16 +329,15 @@ export function DataTable({
                         column.toggleVisibility(!!value)
                       }
                     >
-                      {column.id.replace(/_/g, " ")} {/* Improve column name display */}
+                      {column.id.replace(/_/g, " ")}
                     </DropdownMenuCheckboxItem>
                   )
                 })}
             </DropdownMenuContent>
           </DropdownMenu>
           <Link href="/asset/add_asset">
-            <Button variant="outline" size="sm">
-              <IconPlus className="mr-2 h-4 w-4" /> {/* Added mr-2 */}
-              <span className="hidden lg:inline">Add Asset</span>
+            <Button size="sm">
+              <IconPlus /> <span className="hidden lg:inline">Add Asset</span>
             </Button>
           </Link>
         </div>
@@ -368,25 +359,21 @@ export function DataTable({
                       return (
                         <TableHead key={header.id} colSpan={header.colSpan}>
                           {header.isPlaceholder ? null : (
-                            // >>> PERUBAHAN DI SINI <<<
                             <Button
-                              variant="ghost" // Menggunakan variant ghost agar terlihat seperti header tabel tapi bisa diklik
+                              variant="ghost" 
                               onClick={header.column.getCanSort() ? header.column.getToggleSortingHandler() : undefined}
-                              className="w-full justify-start items-center p-0 h-auto text-left" // Mengatur tampilan tombol agar pas dengan header
+                              className="w-full justify-start items-center p-0 h-auto text-left" 
                             >
                               {flexRender(
                                 header.column.columnDef.header,
                                 header.getContext()
                               )}
-                              {/* Tambahkan ikon indikator sort */}
                               {header.column.getIsSorted() === "asc" && <IconChevronUp className="ml-2 h-4 w-4" />}
                               {header.column.getIsSorted() === "desc" && <IconChevronDown className="ml-2 h-4 w-4" />}
-                              {/* Optional: Icon untuk kolom yang bisa di-sort tapi belum di-sort */}
                               {!header.column.getIsSorted() && header.column.getCanSort() && (
                                 <IconSelector className="ml-2 h-4 w-4 text-muted-foreground opacity-0 group-hover:opacity-100" />
                               )}
                             </Button>
-                            // >>> AKHIR PERUBAHAN <<<
                           )}
                         </TableHead>
                       )
