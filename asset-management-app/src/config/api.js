@@ -5,7 +5,7 @@ const API_CONFIG = {
     assets: '/api/assets',
     delete_asset: '/api/assets/delete/:id',
     users: '/api/users',
-    request: '/api/request',
+    request: '/api/requests',
   }
 };
 

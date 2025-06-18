@@ -49,7 +49,7 @@ function isValidDate(date: Date | undefined) {
 
 const FormSchema = z.object({
   request_id: z.string(),
-  asset_id: z.string(),
+  assets_id: z.string(),
   request_date: z.date({
     required_error: "A Request Date is required",
   }),
@@ -62,7 +62,7 @@ export default function Page() {
     resolver: zodResolver(FormSchema),
     defaultValues: {
       request_id: "",
-      asset_id: "A001",
+      assets_id: "A001",
       request_date: new Date(),
     },
   })
@@ -71,13 +71,15 @@ export default function Page() {
     setIsSubmitting(true);
 
     const payload = {
-      ...data,
+      request_id: data.request_id,
+      assets_id: data.assets_id,
+      request_date: formatDate(data.request_date),
       created_by: "firmanakbarm", 
       updated_by: "firmanakbarm", 
     };
 
     try {
-      const response = await fetch(`${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.assets}`, {
+      const response = await fetch(`${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.request}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -166,7 +168,7 @@ export default function Page() {
                                   />
                                   <FormField
                                     control={form.control}
-                                    name="asset_id"
+                                    name="assets_id"
                                     render={({ field }) => (
                                       <FormItem className="grid grid-cols-5 items-center gap-4">
                                         <FormLabel className="col-span-1 font-medium">Asset ID</FormLabel>
@@ -188,7 +190,7 @@ export default function Page() {
 
                                         return (
                                         <FormItem className="grid grid-cols-5 items-center gap-4">
-                                            <FormLabel className="col-span-1 font-medium">Subscription Date</FormLabel>
+                                            <FormLabel className="col-span-1 font-medium">Request Date</FormLabel>
                                             <div className="col-span-3">
                                             <div className="relative flex gap-2">
                                                 <FormControl>
