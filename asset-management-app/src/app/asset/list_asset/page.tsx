@@ -1,3 +1,4 @@
+import API_CONFIG from '@/config/api';
 import { AppSidebar } from "@/components/app-sidebar"
 import {
   Breadcrumb,
@@ -15,17 +16,17 @@ import {
 } from "@/components/ui/sidebar"
 import { DataTable } from "@/components/data-table"
 
-import { promises as fs } from 'fs';
-import path from 'path';
-
 async function getData() {
-  const filePath = path.join(process.cwd(), 'src', 'api', 'data.json');
+  const url = `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.assets}`;
   try {
-    const file = await fs.readFile(filePath, 'utf8');
-    const data = JSON.parse(file);
-    return data;
+    const response = await fetch(url, { cache: 'no-store' });
+    if (!response.ok) {
+      throw new Error(`Gagal mengambil data, status: ${response.status}`);
+    }
+    const responseData = await response.json();
+    return responseData.data || []; 
   } catch (error) {
-    console.error("Gagal memuat data aset:", error);
+    console.error("Gagal mengambil data dari API:", error);
     return [];
   }
 }

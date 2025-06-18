@@ -13,28 +13,30 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
-import path from "path";
-import { promises as fs } from "fs";
 import { notFound } from "next/navigation";
 import { AssetDetailView } from "./asset-detail";
-import type { Asset } from "./types"; 
+import API_CONFIG from "@/config/api";
+import { Asset } from "./types";
 
 async function getAssetData(id: string): Promise<Asset | undefined> {
-  const filePath = path.join(process.cwd(), "src", "api", "data.json");
+  const url = `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.assets}/${id}`;
+  
   try {
-    const fileContents = await fs.readFile(filePath, "utf8");
-    const data: Asset[] = JSON.parse(fileContents);
-    const asset = data.find((item) => item.id.toString() === id);
-    return asset;
+    const response = await fetch(url, { cache: 'no-store' });
+    if (!response.ok) {
+      return undefined;
+    }
+    const responseData = await response.json();
+    return responseData.data; 
+
   } catch (error) {
-    console.error("Gagal membaca atau parse data.json:", error);
+    console.error("Gagal mengambil data dari API:", error);
     return undefined;
   }
 }
 
 export default async function DetailAssetPage({ params }: { params: { assetId: string } }) {
   const { assetId } = params;
-
   const asset = await getAssetData(assetId);
 
   if (!asset) {

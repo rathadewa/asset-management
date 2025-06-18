@@ -27,6 +27,7 @@ import {
   IconChevronsLeft,
   IconChevronsRight,
   IconCircleCheckFilled,
+  IconCircleXFilled,
   IconDotsVertical,
   IconLayoutColumns,
   IconLoader,
@@ -46,6 +47,8 @@ import {
   SortingState,
   useReactTable,
   VisibilityState,
+  RowData,
+  TableMeta,
 } from "@tanstack/react-table"
 import { z } from "zod"
 
@@ -75,29 +78,51 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { IconSelector, IconChevronUp } from '@tabler/icons-react';
+import {IconChevronUp } from '@tabler/icons-react';
 import Link from "next/link"
-import { DeleteConfirmationDialog } from "./delete-confirmation"
+import { deleteAsset, DeleteConfirmationDialog } from "./delete-confirmation"
+import { ChevronsUpDown } from "lucide-react"
+import { toast } from "sonner"
+import { metadata } from "@/app/layout"
+
+declare module '@tanstack/react-table' {
+  
+  interface TableMeta<TData extends RowData> {
+    setData: React.Dispatch<React.SetStateAction<TData[]>>
+  }
+}
 
 export const schema = z.object({
-  id: z.number(),
-  asset_name: z.string(),
   asset_id: z.string(),
-  asset_category: z.string(),
-  asset_status: z.string(),
-  asset_location: z.string(),
-  asset_created: z.string(),
-  asset_updated: z.string(),
+  asset_name: z.string(),
+  category: z.string(),
+  status: z.string(),
+  location: z.string(),
+  created_date: z.string(),
+  updated_at: z.string(),
 })
+
+const dateFormatter = new Intl.DateTimeFormat('id-ID', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+const timeFormatter = new Intl.DateTimeFormat('id-ID', {
+  hour: '2-digit',
+  minute: '2-digit',
+  hour12: false,
+  timeZone: 'Asia/Jakarta',
+});
 
 const columns: ColumnDef<z.infer<typeof schema>>[] = [
   {
-    accessorKey: "id",
+    accessorKey: "no",
     header: "No",
     cell: ({ row }) => (
-      <div className="text-center">{row.original.id}</div>
+      <div className="text-center">{row.index + 1}</div>
     ),
     enableHiding: false,
+    enableSorting: false,
   },
   {
     accessorKey: "asset_name",
@@ -112,7 +137,7 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
     header: "Asset ID",
     cell: ({ row }) => (
       <div className="text-center">
-        <Badge variant="outline" className="text-muted-foreground px-1.5">
+        <Badge variant="outline" className="text-center text-muted-foreground px-1.5">
           {row.original.asset_id}
         </Badge>
       </div>
@@ -122,52 +147,69 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
     accessorKey: "asset_category",
     header: "Category",
     cell: ({ row }) => (
-      <div className="">{row.original.asset_category}</div>
+      <div className="text-center">{row.original.category}</div>
     ),
   },
   {
-      accessorKey: "asset_status",
-      header: "Status",
-      cell: ({ row }) => (
-          <Badge variant="outline" className="text-muted-foreground px-1.5">
-        {row.original.asset_status === "Deployed" ? (
-            <IconCircleCheckFilled className="fill-green-500 dark:fill-green-400" />
-        ) : (
-            <IconLoader />
-        )}
-        {row.original.asset_status}
-      </Badge>
+    accessorKey: "asset_status",
+    header: "Status",
+    cell: ({ row }) => (
+      <div className="text-center">
+          <Badge variant="outline" className="justify-center px-1.5">
+          {row.original.status === "Deployed" ? (
+              <IconCircleCheckFilled className="fill-green-500 dark:fill-green-400" />
+          ) : row.original.status === "Undeployed" ? (
+              <IconCircleXFilled className="fill-red-500 dark:fill-red-400" />
+              
+          ) 
+          : (
+              <IconLoader />
+          )}
+          {row.original.status}
+        </Badge>
+      </div>
     ),
   },
   {
     accessorKey: "asset_location",
     header: "Location",
     cell: ({ row }) => (
-        <div className="">{row.original.asset_location}</div>
+        <div className="">{row.original.location}</div>
     ),
   },
   {
     accessorKey: "asset_created",
     header: "Created Date",
-    cell: ({ row }) => (
-        <div className="">{row.original.asset_created}</div>
-    ),
+    cell: ({ row }) => {
+      const date = new Date(row.original.created_date);
+      const formattedDateTime = `${dateFormatter.format(date)} ${timeFormatter.format(date)}`;
+      return <div className="">{formattedDateTime}</div>;
+    },
   },
   {
     accessorKey: "asset_updated",
     header: "Update At",
-    cell: ({ row }) => (
-        <div className="">{row.original.asset_updated}</div>
-    ),
+    cell: ({ row }) => {
+        const date = new Date(row.original.updated_at);
+        const formattedDateTime = `${dateFormatter.format(date)} ${timeFormatter.format(date)}`;
+        return <div className="">{formattedDateTime}</div>;
+    },
   },
   {
     id: "actions",
-    cell: ({ row }) => {
-      const handleDelete = () => {
-        console.log(`Menghapus aset dengan ID: ${row.original.id}`);
-        // await fetch(`/api/row.originals/${row.original.id}`, { method: 'DELETE' });
-        
-        alert(`Aset "${row.original.asset_name}" telah dihapus.`);
+    cell: ({ row, table }) => { 
+      const { setData } = table.options.meta;
+      const handleDelete = async () => {
+        try {
+          await deleteAsset(row.original.asset_id);
+          setData((currentData: any[]) => 
+            currentData.filter(item => item.asset_id !== row.original.asset_id)
+          );
+          toast.success(`Aset "${row.original.asset_name}" berhasil dihapus.`);
+        } catch (error) {
+          console.error("Gagal menghapus aset dari tabel:", error);
+          toast.error("Gagal menghapus aset.");
+        }
       };
       return(
           <DropdownMenu>
@@ -183,12 +225,12 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="w-32">
             <DropdownMenuItem>
-              <Link href={`/asset/detail_asset/${row.original.id}`}>
+              <Link href={`/asset/detail_asset/${row.original.asset_id}`}>
                 View Detail
               </Link>
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <Link href={`/asset/update_asset/${row.original.id}`}>
+              <Link href={`/asset/update_asset/${row.original.asset_id}`}>
                   Update
               </Link>
             </DropdownMenuItem>
@@ -206,7 +248,7 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
 
 function DraggableRow({ row }: { row: Row<z.infer<typeof schema>> }) {
   const { transform, transition, setNodeRef, isDragging } = useSortable({
-    id: row.original.id,
+    id: row.original.asset_id,
   })
 
   return (
@@ -241,9 +283,7 @@ export function DataTable({
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
       []
   )
-  const [sorting, setSorting] = React.useState<SortingState>([
-  ])
-
+  const [sorting, setSorting] = React.useState<SortingState>([])
   const [pagination, setPagination] = React.useState({
     pageIndex: 0,
     pageSize: 20,
@@ -256,7 +296,7 @@ export function DataTable({
   )
 
   const dataIds = React.useMemo<UniqueIdentifier[]>(
-    () => data?.map(({ id }) => id) || [],
+    () => data?.map(({ asset_id }) => asset_id) || [],
     [data]
   )
 
@@ -270,7 +310,10 @@ export function DataTable({
       columnFilters,
       pagination,
     },
-    getRowId: (row) => row.id.toString(),
+    meta:{
+      setData,
+    },
+    getRowId: (row) => row.asset_id.toString(),
     enableRowSelection: true,
     onRowSelectionChange: setRowSelection,
     onSortingChange: setSorting,
@@ -364,7 +407,7 @@ export function DataTable({
                             <Button
                               variant="ghost" 
                               onClick={header.column.getCanSort() ? header.column.getToggleSortingHandler() : undefined}
-                              className="w-full justify-start items-center p-0 h-auto text-left" 
+                              className="w-full justify-center items-center p-0 h-auto" 
                             >
                               {flexRender(
                                 header.column.columnDef.header,
@@ -373,7 +416,7 @@ export function DataTable({
                               {header.column.getIsSorted() === "asc" && <IconChevronUp className="ml-2 h-4 w-4" />}
                               {header.column.getIsSorted() === "desc" && <IconChevronDown className="ml-2 h-4 w-4" />}
                               {!header.column.getIsSorted() && header.column.getCanSort() && (
-                                <IconSelector className="ml-2 h-4 w-4 text-muted-foreground opacity-0 group-hover:opacity-100" />
+                                <ChevronsUpDown className="ml-2 h-4 w-4" />
                               )}
                             </Button>
                           )}

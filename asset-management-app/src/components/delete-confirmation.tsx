@@ -12,10 +12,34 @@ import {
   DialogClose, 
 } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
+import API_CONFIG from '@/config/api';
 
 interface DeleteConfirmationDialogProps {
   children: React.ReactNode; 
   onConfirm: () => void;      
+}
+
+export async function deleteAsset(assetId: string): Promise<boolean> {
+  if (!assetId) {
+    throw new Error("Asset ID is required for deletion.");
+  }
+  const url = `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.assets}/${assetId}`;
+  try {
+    const response = await fetch(url, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message || 'Failed to delete the asset.');
+    }
+    return true;
+  } catch (error) {
+    console.error(`Error deleting asset with ID ${assetId}:`, error);
+    throw error;
+  }
 }
 
 export function DeleteConfirmationDialog({ children, onConfirm }: DeleteConfirmationDialogProps) {
