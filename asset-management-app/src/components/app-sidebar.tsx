@@ -5,7 +5,8 @@ import {
   AudioWaveform,
   Command,
   GalleryVerticalEnd,
-  SquareTerminal,
+  GitPullRequest,
+  SquareLibrary,
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
@@ -46,7 +47,7 @@ const data = {
     {
       title: "Asset",
       url: "/asset",
-      icon: SquareTerminal,
+      icon: SquareLibrary,
       isActive: true,
       items: [
         {
@@ -56,6 +57,22 @@ const data = {
         {
           title: "Add Asset",
           url: "/asset/add_asset",
+        },
+      ],
+    },
+    {
+      title: "Request",
+      url: "/request",
+      icon: GitPullRequest,
+      isActive: true,
+      items: [
+        {
+          title: "List Request",
+          url: "/request/list_request",
+        },
+        {
+          title: "Add Request",
+          url: "/request/add_request",
         },
       ],
     },

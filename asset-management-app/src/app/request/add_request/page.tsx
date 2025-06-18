@@ -18,32 +18,40 @@ import {
 } from "@/components/ui/sidebar"
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { ChevronLeft, Plus, X } from "lucide-react";
+import { CalendarIcon, ChevronLeft, Plus, X } from "lucide-react";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { toast } from "sonner"
 import { z } from "zod"
-import { Select, SelectContent, SelectItem, SelectValue, SelectTrigger } from "@/components/ui/select";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import API_CONFIG from "@/config/api";
+import { Calendar } from "@/components/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 
-const categories = ["Laptop", "Hp", "Monitor", "Pointer"] as const;
-const statuses = ["Ready to Deploy", "Deployed", "Undeployed"] as const;
+function formatDate(date: Date | undefined) {
+  if (!date) {
+    return ""
+  }
+  // Menggunakan format en-CA (YYYY-MM-DD) agar lebih mudah di-parse kembali
+  // dan lebih universal
+  return date.toLocaleDateString("en-CA"); 
+}
+
+function isValidDate(date: Date | undefined) {
+  if (!date) {
+    return false
+  }
+  return !isNaN(date.getTime())
+}
 
 const FormSchema = z.object({
-  asset_name: z.string().min(2, {
-    message: "Name must be at least 2 characters.",
-  }),
+  request_id: z.string(),
   asset_id: z.string(),
-  category: z.enum(categories, { 
-    message: "Please select an asset category.",
-  }),
-  status: z.enum(statuses),
-  location: z.string().min(4, {
-    message: "Location must be at least 4 characters.",
+  request_date: z.date({
+    required_error: "A Request Date is required",
   }),
 })
 
@@ -53,10 +61,9 @@ export default function Page() {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      asset_name: "",
+      request_id: "",
       asset_id: "A001",
-      status: "Ready to Deploy",
-      location: "",
+      request_date: new Date(),
     },
   })
 
@@ -82,12 +89,12 @@ export default function Page() {
 
       if (!response.ok) {
         
-        throw new Error(result.message || "Failed to add asset");
+        throw new Error(result.message || "Failed to add request");
       }
       toast.success("Asset added successfully!", {
-        description: `Asset ${payload.asset_name} has been saved.`,
+        description: `Request ID ${payload.request_id} has been saved.`,
       });
-      router.push('/asset/list_asset');
+      router.push('/request/list_request');
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : "An unexpected error occurred.";
       console.error("Error submitting form:", errorMessage);
@@ -114,12 +121,12 @@ export default function Page() {
               <BreadcrumbList>
                 <BreadcrumbItem className="hidden md:block">
                   <BreadcrumbLink href="#">
-                    Asset
+                    Request
                   </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="hidden md:block" />
                 <BreadcrumbItem>
-                  <BreadcrumbPage>Add Asset</BreadcrumbPage>
+                  <BreadcrumbPage>Add Request</BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>
@@ -135,7 +142,7 @@ export default function Page() {
                               <CardHeader>
                                 <div className="flex justify-between items-start">
                                   <div>
-                                    <CardTitle className="text-2xl md:text-3xl">Add Asset</CardTitle>
+                                    <CardTitle className="text-2xl md:text-3xl">Add Request</CardTitle>
                                     <CardDescription className="mt-2 text-sm">
                                     </CardDescription>
                                   </div>
@@ -144,13 +151,13 @@ export default function Page() {
                               <CardContent className="flex flex-col gap-4">
                                   <FormField
                                     control={form.control}
-                                    name="asset_name"
+                                    name="request_id"
                                     render={({ field }) => (
                                       <FormItem className="grid grid-cols-5 items-center gap-4">
-                                        <FormLabel className="col-span-1 font-medium">Asset Name</FormLabel>
+                                        <FormLabel className="col-span-1 font-medium">Request ID</FormLabel>
                                         <div className="col-span-3">
                                           <FormControl>
-                                            <Input placeholder="Input Asset Name.." {...field} />
+                                            <Input placeholder="Input Request ID.." {...field} />
                                           </FormControl>
                                           <FormMessage />
                                         </div>
@@ -174,82 +181,78 @@ export default function Page() {
                                   />
                                   <FormField
                                     control={form.control}
-                                    name="category" 
-                                    render={({ field }) => (
-                                      <FormItem className="grid grid-cols-5 items-center gap-4">
-                                        <FormLabel className=" col-span-1 font-medium">Category</FormLabel>
-                                        <div className="col-span-3">
-                                          <Select onValueChange={field.onChange} value={field.value}>
-                                            <FormControl>
-                                              <SelectTrigger>
-                                                <SelectValue placeholder="Select a category" />
-                                              </SelectTrigger>
-                                            </FormControl>
-                                            <SelectContent>
-                                              {categories.map((category) => (
-                                                <SelectItem key={category} value={category}>
-                                                  {category}
-                                                </SelectItem>
-                                              ))}
-                                            </SelectContent>
-                                          </Select>
-                                          <FormMessage />
-                                        </div>
-                                      </FormItem>
-                                    )}
-                                  />
-                                  <FormField
-                                    control={form.control}
-                                    name="status" 
-                                    render={({ field }) => (
-                                      <FormItem className="grid grid-cols-5 items-center gap-4">
-                                        <FormLabel className="col-span-1 font-medium">Status</FormLabel>
-                                        <div className="col-span-3">
-                                          <Select onValueChange={field.onChange} value={field.value}>
-                                            <FormControl>
-                                              <SelectTrigger>
-                                                <SelectValue placeholder="Select a Status" />
-                                              </SelectTrigger>
-                                            </FormControl>
-                                            <SelectContent>
-                                              {statuses.map((status) => (
-                                                <SelectItem key={status} value={status}>
-                                                  {status}
-                                                </SelectItem>
-                                              ))}
-                                            </SelectContent>
-                                          </Select>
-                                          <FormMessage />
-                                        </div>
-                                      </FormItem>
-                                    )}
-                                  />
-                                  <FormField
-                                    control={form.control}
-                                    name="location"
-                                    render={({ field }) => (
-                                      <FormItem className="grid grid-cols-5 items-center gap-4">
-                                        <FormLabel className="col-span-1 font-medium">Location</FormLabel>
-                                        <div className="col-span-3">
-                                          <FormControl>
-                                            <Input placeholder="Input Asset Location.." {...field} />
-                                          </FormControl>
-                                          <FormMessage />
-                                        </div>
-                                      </FormItem>
-                                    )}
-                                  />
+                                    name="request_date"
+                                    render={({ field }) => {
+                                        const [open, setOpen] = useState(false);
+                                        const [month, setMonth] = useState<Date | undefined>(field.value);
+
+                                        return (
+                                        <FormItem className="grid grid-cols-5 items-center gap-4">
+                                            <FormLabel className="col-span-1 font-medium">Subscription Date</FormLabel>
+                                            <div className="col-span-3">
+                                            <div className="relative flex gap-2">
+                                                <FormControl>
+                                                <Input
+                                                    id="date"
+                                                    placeholder="YYYY-MM-DD"
+                                                    className="bg-background pr-10"
+                                                    value={field.value ? formatDate(field.value) : ""}
+                                                    onChange={(e) => {
+                                                    const date = new Date(e.target.value);
+                                                    if (isValidDate(date)) {
+                                                        field.onChange(date); // Update state form
+                                                    } else {
+                                                        field.onChange(undefined); // Kosongkan jika tidak valid
+                                                    }
+                                                    }}
+                                                />
+                                                </FormControl>
+                                                <Popover open={open} onOpenChange={setOpen}>
+                                                <PopoverTrigger asChild>
+                                                    <Button
+                                                    id="date-picker"
+                                                    variant="ghost"
+                                                    className="absolute top-1/2 right-2 size-6 -translate-y-1/2"
+                                                    >
+                                                    <CalendarIcon className="size-3.5" />
+                                                    <span className="sr-only">Select date</span>
+                                                    </Button>
+                                                </PopoverTrigger>
+                                                <PopoverContent className="w-auto overflow-hidden p-0" align="end">
+                                                    <Calendar
+                                                    mode="single"
+                                                    selected={field.value}
+                                                    onSelect={(date) => {
+                                                        field.onChange(date); // Update state form
+                                                        setOpen(false); // Tutup popover
+                                                    }}
+                                                    month={month}
+                                                    onMonthChange={setMonth}
+                                                    captionLayout="dropdown"
+                                                    fromYear={2020}
+                                                    toYear={2030}
+                                                    initialFocus
+                                                    />
+                                                </PopoverContent>
+                                                </Popover>
+                                            </div>
+                                            <FormMessage />
+                                            </div>
+                                        </FormItem>
+                                        );
+                                    }}
+                                    />
                             </CardContent>
                             <div className="flex items-center justify-between px-4 pt-4 border-t">
                             <div>
-                              <Link href="/asset/list_asset">
-                                <Button variant="outline" className="flex items-center gap-2" type="button"><ChevronLeft size={16}/> List Asset </Button>
+                              <Link href="/request/list_request">
+                                <Button variant="outline" className="flex items-center gap-2" type="button"><ChevronLeft size={16}/> List Request </Button>
                               </Link>
                             </div>
                             <div className="flex gap-2">
                                 <Button variant="outline" className="flex items-center gap-2" type="button" onClick={() => form.reset()} > <X size={16}/>Cancel</Button>
                                 <Button type="submit" disabled={isSubmitting}>
-                                  {isSubmitting ? "Submiting..." : <><Plus size={16}/>Add Asset </>}
+                                  {isSubmitting ? "Submiting..." : <><Plus size={16}/>Add Request </>}
                                 </Button>
                             </div>
                           </div>

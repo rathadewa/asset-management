@@ -14,10 +14,10 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar"
-import { DataTable } from "@/components/data-table-asset"
+import { DataTable } from "@/components/data-table-request"
 
 async function getData() {
-  const url = `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.assets}`;
+  const url = `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.request}`;
   try {
     const response = await fetch(url, { cache: 'no-store' });
     if (!response.ok) {
@@ -48,12 +48,12 @@ export default async function Page() {
               <BreadcrumbList>
                 <BreadcrumbItem className="hidden md:block">
                   <BreadcrumbLink href="#">
-                    Asset
+                    Request
                   </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="hidden md:block" />
                 <BreadcrumbItem>
-                  <BreadcrumbPage>List Asset</BreadcrumbPage>
+                  <BreadcrumbPage>List Request</BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>
