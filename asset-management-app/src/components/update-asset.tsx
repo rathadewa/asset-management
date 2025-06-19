@@ -12,12 +12,16 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { toast } from "sonner"
 import { z } from "zod"
+import API_CONFIG from "@/config/api";
+import { deleteAsset } from "./delete-confirmation";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 const categories = ["Laptop", "Hp", "Monitor", "Pointer"];
 const statuses = ["Ready to Deploy", "Deployed", "Undeployed"];
 
 const FormSchema = z.object({
-  name: z.string().min(2, {
+  asset_name: z.string().min(2, {
     message: "Name must be at least 2 characters.",
   }),
   asset_id: z.string(),
@@ -30,15 +34,74 @@ const FormSchema = z.object({
   }),
 })
 
-export function AssetUpdateView({ asset }: { asset: Asset }) {
+async function getAssetData(id: string, token: string): Promise<Asset | undefined> {
+  const url = `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.get_asset}`;
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+      body: JSON.stringify({ asset_id: id }),
+      cache: 'no-store'
+    });
+    if (!response.ok) return undefined;
+    const responseData = await response.json();
+    if (responseData.asset && typeof responseData.asset === 'object') {
+      return responseData.asset;
+    }
+    return undefined;
+  } catch (error) {
+    console.error("Gagal mengambil data dari API:", error);
+    return undefined;
+  }
+}
+
+export function AssetUpdateView({ assetId, token }: { assetId: string, token: string | undefined }) {
+  
+  const [asset, setAsset] = useState<Asset | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  
+  useEffect(() => {
+    if (!token) {
+      setError("Token otentikasi tidak ditemukan.");
+      setIsLoading(false);
+      return;
+    }
+
+    const fetchData = async () => {
+      setIsLoading(true);
+      const data = await getAssetData(assetId, token);
+      if (data) {
+        setAsset(data);
+      } else {
+        setError("Aset tidak ditemukan atau gagal mengambil data.");
+      }
+      setIsLoading(false);
+    };
+
+        fetchData();
+    }, [assetId, token]); 
+    if (isLoading) {
+        return <Card className="mx-4"><CardContent className="p-6">Memuat data aset...</CardContent></Card>;
+    }
+
+    if (error) {
+        return <Card className="mx-4"><CardContent className="p-6 text-red-500">{error}</CardContent></Card>;
+    }
+
+    if (!asset) {
+        return null; 
+    }
+
     const form = useForm<z.infer<typeof FormSchema>>({
         resolver: zodResolver(FormSchema),
         defaultValues: {
-        name: asset.asset_name,
+        asset_name: asset.asset_name,
         asset_id: asset.asset_id,
-        category: asset.asset_category,
-        status: asset.asset_status,
-        location: asset.asset_location,
+        category: asset.category,
+        status: asset.status,
+        location: asset.location,
         },
     })
 
@@ -67,7 +130,7 @@ export function AssetUpdateView({ asset }: { asset: Asset }) {
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 px-4 pb-4">
                 <FormField
                 control={form.control}
-                name="name"
+                name="asset_name"
                 render={({ field }) => (
                     <FormItem className="grid grid-cols-5 items-center gap-4">
                     <FormLabel className="col-span-1 font-medium">Asset Name</FormLabel>

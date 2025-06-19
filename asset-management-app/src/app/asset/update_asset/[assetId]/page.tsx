@@ -16,38 +16,26 @@ import {
 import path from "path";
 import { promises as fs } from "fs";
 import { notFound } from "next/navigation";
-import { AssetUpdateView } from "./asset-update";
+import { cookies } from "next/headers";
+import { AssetUpdateView } from "@/components/update-asset";
 
-export type Asset = {
-  id: number;
-  asset_name: string;
-  asset_id: string;
-  asset_category: string;
-  asset_status: "In Process" | "Done";
-  asset_location: string;
-  asset_created: string;
-  asset_updated: string;
+type UpdateAssetPageProps = {
+  params: { assetId: string }
 };
 
-async function getAssetData(id: string): Promise<Asset | undefined> {
-  const filePath = path.join(process.cwd(), 'src', 'api', 'data.json');
-  try {
-    const fileContents = await fs.readFile(filePath, 'utf8');
-    const data: Asset[] = JSON.parse(fileContents);
-    const asset = data.find(item => item.id === Number(id));
-    return asset;
-  } catch (error) {
-    console.error("Gagal membaca atau parse data.json:", error);
-    return undefined;
+export default async function DetailAssetPage(props: UpdateAssetPageProps) {
+  const params = await props.params;
+  const assetId = params.assetId;
+  
+  if (!assetId) {
+    notFound();
   }
-}
+  
+  const token = (await cookies()).get('token')?.value;
 
-export default async function UpdateAssetPage({ params }: { params: { assetId: string } }) {
-  const { assetId } = params; 
-  const asset = await getAssetData(assetId);
-
-  if (!asset) {
-    notFound(); 
+  if (!token) {
+    console.error("Token otentikasi tidak ditemukan.");
+    return undefined;
   }
 
   return (
@@ -80,7 +68,7 @@ export default async function UpdateAssetPage({ params }: { params: { assetId: s
             <div className="flex flex-1 flex-col">
                 <div className="@container/main flex flex-1 flex-col gap-2">
                     <div className="flex flex-col gap-4 py-4 md:py-6">
-                      <AssetUpdateView asset={asset} />
+                      <AssetUpdateView assetId={assetId} token={token} />
                     </div>
                 </div>
             </div>

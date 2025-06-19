@@ -14,11 +14,16 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { notFound } from "next/navigation";
-import { AssetDetailView } from "../../../../components/asset-detail";
+import { AssetDetailView } from "@/components/detail-asset";
 import { cookies } from "next/headers";
 
-export default async function DetailAssetPage({ params }: { params: { assetId: string } }) {
-  const { assetId } = params;
+type DetailAssetPageProps = {
+  params: { assetId: string }
+};
+
+export default async function DetailAssetPage(props: DetailAssetPageProps) {
+  const params = await props.params;
+  const assetId = params.assetId;
 
   if (!assetId) {
     notFound();
@@ -30,6 +35,7 @@ export default async function DetailAssetPage({ params }: { params: { assetId: s
     console.error("Token otentikasi tidak ditemukan.");
     return undefined;
   }
+
   return (
     <SidebarProvider>
       <AppSidebar />
