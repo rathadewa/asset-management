@@ -94,7 +94,7 @@ export const schema = z.object({
   created_date: z.string(),
   updated_at: z.string(),
   created_by: z.string(),
-  update_by: z.string(),
+  updated_by: z.string(),
 })
 
 const dateFormatter = new Intl.DateTimeFormat('id-ID', {
@@ -139,7 +139,7 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
           {row.original.request_id}
         </div>
       </div>
-    ),
+    )
   },
   {
     accessorKey: "request_date",
@@ -220,6 +220,7 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
 ]
 
 function DraggableRow({ row }: { row: Row<z.infer<typeof schema>> }) {
+  console.log(row.original)
   const { transform, transition, setNodeRef, isDragging } = useSortable({
     id: row.original.asset_id,
   })
@@ -244,11 +245,13 @@ function DraggableRow({ row }: { row: Row<z.infer<typeof schema>> }) {
   )
 }
 
-export function DataTable({
+export function DataTableRequest({
   data: initialData,
 }: {
   data: z.infer<typeof schema>[]
 }) {
+  console.log("=== DEBUG: initialData ===", initialData)
+
   const [data, setData] = React.useState(() => initialData)
   const [rowSelection, setRowSelection] = React.useState({})
   const [columnVisibility, setColumnVisibility] =
@@ -504,4 +507,3 @@ export function DataTable({
     </div>
   )
 }
-

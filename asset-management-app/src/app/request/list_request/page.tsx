@@ -14,24 +14,21 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar"
-import { DataTable } from "@/components/data-table-request"
+import { DataTableRequest } from "@/components/data-table-request"
 import { cookies } from 'next/headers';
 
 async function getData() {
   const token = (await cookies()).get('token')?.value;
-
-  if (!token) {    
+  if (!token) {
     throw new Error('Sesi tidak valid atau tidak ditemukan. Silakan login kembali.');
   }
-
-  const url = `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.request}`; 
+  const url = `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.request}`;
   const response = await fetch(url, {
     headers: {
-      'Authorization': `Bearer ${token}`
+    'Authorization': `Bearer ${token}`
     },
-    cache: 'no-store' 
-  });
-
+    cache: 'no-store'
+    });
   if (!response.ok) {
     throw new Error(`Gagal mengambil data, status: ${response.status}`);
   }
@@ -41,6 +38,7 @@ async function getData() {
 
 export default async function Page() {
   const data = await getData();
+  const data_request = JSON.parse(JSON.stringify(data));
   return (
     <SidebarProvider>
       <AppSidebar />
@@ -71,7 +69,7 @@ export default async function Page() {
             <div className="flex flex-1 flex-col">
                 <div className="@container/main flex flex-1 flex-col gap-2">
                     <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
-                    <DataTable data={data} />
+                    <DataTableRequest data={data_request} />
                     </div>
                 </div>
             </div>

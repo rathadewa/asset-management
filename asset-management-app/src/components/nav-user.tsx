@@ -30,6 +30,7 @@ import {
 } from "@/components/ui/sidebar"
 import { logout } from "@/app/actions/auth" 
 import { useUser } from "@/hooks/use-user"
+
 export function NavUser() {
   const { isMobile } = useSidebar()
   const user = useUser()

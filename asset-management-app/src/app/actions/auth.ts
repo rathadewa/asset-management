@@ -6,4 +6,5 @@ import { redirect } from "next/navigation"
 export async function logout() {
   (await cookies()).delete("token")
   redirect("/login")
+  localStorage.removeItem('user')
 }

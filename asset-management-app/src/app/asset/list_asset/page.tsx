@@ -19,19 +19,16 @@ import { cookies } from 'next/headers';
 
 async function getData() {
   const token = (await cookies()).get('token')?.value;
-
-  if (!token) {    
+  if (!token) {
     throw new Error('Sesi tidak valid atau tidak ditemukan. Silakan login kembali.');
   }
-
-  const url = `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.assets}`; 
+  const url = `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.assets}`;
   const response = await fetch(url, {
     headers: {
-      'Authorization': `Bearer ${token}`
+    'Authorization': `Bearer ${token}`
     },
-    cache: 'no-store' 
-  });
-
+    cache: 'no-store'
+    });
   if (!response.ok) {
     throw new Error(`Gagal mengambil data, status: ${response.status}`);
   }

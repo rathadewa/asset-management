@@ -14,6 +14,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
+import { useUser } from "@/hooks/use-user";
 
 const categories = ["Laptop", "Hp", "Monitor", "Pointer", "Elektronik"] as const;
 const statuses = ["Ready to Deploy", "Deployed", "Undeployed"] as const;
@@ -29,6 +30,7 @@ const FormSchema = z.object({
 export function AddAssetView({ token }: { token: string | undefined }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
+  const user = useUser();
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -48,14 +50,21 @@ export function AddAssetView({ token }: { token: string | undefined }) {
         setIsSubmitting(false);
         return;
     }
+    if (!user || !user.name) {
+            toast.error("Submission Failed", {
+                description: "User information not available. Please try again.",
+            });
+            setIsSubmitting(false);
+            return;
+        }
 
     const payload = {
       asset_name: data.asset_name,
       category: data.category,
       status: data.status,
       location: data.location,
-      created_by: "admin02", 
-      updated_by: "admin02",
+      created_by: user.name, 
+      updated_by: user.name,
     };
 
     try {
@@ -96,6 +105,7 @@ export function AddAssetView({ token }: { token: string | undefined }) {
                     <div>
                     <CardTitle className="text-2xl md:text-3xl">Add Asset</CardTitle>
                     <CardDescription className="mt-2 text-sm">
+                      Fill out the form below to create a new asset.
                     </CardDescription>
                     </div>
                 </div>
