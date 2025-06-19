@@ -6,6 +6,7 @@ const API_CONFIG = {
     delete_asset: '/api/assets/delete/:id',
     users: '/api/users',
     request: '/api/requests',
+    login: '/api/auth/login'
   }
 };
 
