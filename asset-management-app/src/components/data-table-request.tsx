@@ -146,8 +146,8 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
     header: "Request Date",
     cell: ({ row }) => {
       const date = new Date(row.original.request_date);
-      const formattedDateTime = `${dateFormatter.format(date)} ${timeFormatter.format(date)}`;
-      return <div className="">{formattedDateTime}</div>;
+      const formattedDateTime = `${dateFormatter.format(date)}`;
+      return <div className="text-center">{formattedDateTime}</div>;
     },
   },
   {
@@ -156,7 +156,7 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
     cell: ({ row }) => {
       const date = new Date(row.original.created_date);
       const formattedDateTime = `${dateFormatter.format(date)} ${timeFormatter.format(date)}`;
-      return <div className="">{formattedDateTime}</div>;
+      return <div className="text-center">{formattedDateTime}</div>;
     },
   },
   {
@@ -165,7 +165,7 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
     cell: ({ row }) => {
         const date = new Date(row.original.updated_at);
         const formattedDateTime = `${dateFormatter.format(date)} ${timeFormatter.format(date)}`;
-        return <div className="">{formattedDateTime}</div>;
+        return <div className="text-center">{formattedDateTime}</div>;
     },
   },
   {
@@ -220,7 +220,6 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
 ]
 
 function DraggableRow({ row }: { row: Row<z.infer<typeof schema>> }) {
-  console.log(row.original)
   const { transform, transition, setNodeRef, isDragging } = useSortable({
     id: row.original.asset_id,
   })
@@ -245,7 +244,7 @@ function DraggableRow({ row }: { row: Row<z.infer<typeof schema>> }) {
   )
 }
 
-export function DataTableRequest({
+export function DataTable({
   data: initialData,
 }: {
   data: z.infer<typeof schema>[]

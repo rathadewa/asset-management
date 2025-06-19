@@ -14,7 +14,7 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar"
-import { DataTableRequest } from "@/components/data-table-request"
+import { DataTable } from "@/components/data-table-request"
 import { cookies } from 'next/headers';
 
 async function getData() {
@@ -33,12 +33,12 @@ async function getData() {
     throw new Error(`Gagal mengambil data, status: ${response.status}`);
   }
   const responseData = await response.json();
-  return responseData.data || [];
+  return responseData || []; 
 }
 
 export default async function Page() {
   const data = await getData();
-  const data_request = JSON.parse(JSON.stringify(data));
+
   return (
     <SidebarProvider>
       <AppSidebar />
@@ -69,7 +69,7 @@ export default async function Page() {
             <div className="flex flex-1 flex-col">
                 <div className="@container/main flex flex-1 flex-col gap-2">
                     <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
-                    <DataTableRequest data={data_request} />
+                    <DataTable data={data} />
                     </div>
                 </div>
             </div>
