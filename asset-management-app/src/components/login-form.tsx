@@ -53,12 +53,13 @@ export function LoginForm({className, ...props}: React.ComponentProps<"div">) {
             throw new Error(errorMessage);
         }
 
-        
-        Cookies.set("token", result.token, { expires: 1, secure: true, sameSite: 'strict' });
+        const userToStore = { name: data.user_id };
+        localStorage.setItem('user', JSON.stringify(userToStore));
+        Cookies.set("token", result.token, { expires: 1, sameSite: 'strict' })
         toast.success("Login Successful!", {
             description: "You will be redirected to the dashboard.",
         });
-        router.push("/dashboard");
+        router.refresh();
 
         } catch (error) {
         

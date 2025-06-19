@@ -48,7 +48,6 @@ import {
   useReactTable,
   VisibilityState,
   RowData,
-  TableMeta,
 } from "@tanstack/react-table"
 import { z } from "zod"
 
@@ -83,7 +82,6 @@ import Link from "next/link"
 import { deleteAsset, DeleteConfirmationDialog } from "./delete-confirmation"
 import { ChevronsUpDown } from "lucide-react"
 import { toast } from "sonner"
-import { metadata } from "@/app/layout"
 
 declare module '@tanstack/react-table' {
   

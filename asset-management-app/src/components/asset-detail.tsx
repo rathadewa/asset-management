@@ -1,4 +1,3 @@
-"use client"
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -8,7 +7,42 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ChevronLeft, RefreshCcw, Trash } from "lucide-react";
 import { DeleteConfirmationDialog } from "@/components/delete-confirmation";
-import type { Asset } from "./types";
+import { notFound } from "next/navigation";
+import { cookies } from "next/headers";
+import API_CONFIG from "@/config/api";
+import { Asset } from "@/app/asset/detail_asset/[assetId]/types";
+
+async function getAssetData(id: string, token: string): Promise<Asset | undefined> {
+  const url = `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.get_asset}`;
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}` 
+      },
+      body: JSON.stringify({ asset_id: id }), 
+      cache: 'no-store'
+    });
+
+    if (!response.ok) {
+      console.error(`Gagal mengambil data, status: ${response.status}`);
+      return undefined;
+    }
+    
+    const responseData = await response.json();
+    if (Array.isArray(responseData.data) && responseData.data.length > 0) {
+      return responseData.data[0];
+    } else if (responseData.data && typeof responseData.data === 'object') {
+      return responseData.data;
+    }
+    return undefined;
+  } catch (error) {
+    console.error("Gagal mengambil data dari API:", error);
+    return undefined;
+  }
+  return;
+}
 
 function StatusBadge({ status }: { status: "Ready to Deployed" | "Deployed" }) {
 
@@ -18,7 +52,12 @@ function StatusBadge({ status }: { status: "Ready to Deployed" | "Deployed" }) {
   return <Badge variant="secondary" className="text-md gap-2 flex items-center"> <IconLoader /> Ready to Deployed </Badge>;
 }
 
-export function AssetDetailView({ asset }: { asset: Asset }) {
+export async function AssetDetailView({ assetId, token }: { assetId: string, token: string }) {
+  const asset = await getAssetData(assetId, token);
+
+  if (!asset) {
+    notFound();
+  }
   
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString("id-ID", {

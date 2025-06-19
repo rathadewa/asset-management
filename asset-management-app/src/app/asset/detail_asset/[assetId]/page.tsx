@@ -14,35 +14,22 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { notFound } from "next/navigation";
-import { AssetDetailView } from "./asset-detail";
-import API_CONFIG from "@/config/api";
-import { Asset } from "./types";
-
-async function getAssetData(id: string): Promise<Asset | undefined> {
-  const url = `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.assets}/${id}`;
-  
-  try {
-    const response = await fetch(url, { cache: 'no-store' });
-    if (!response.ok) {
-      return undefined;
-    }
-    const responseData = await response.json();
-    return responseData.data; 
-
-  } catch (error) {
-    console.error("Gagal mengambil data dari API:", error);
-    return undefined;
-  }
-}
+import { AssetDetailView } from "../../../../components/asset-detail";
+import { cookies } from "next/headers";
 
 export default async function DetailAssetPage({ params }: { params: { assetId: string } }) {
   const { assetId } = params;
-  const asset = await getAssetData(assetId);
 
-  if (!asset) {
+  if (!assetId) {
     notFound();
   }
+  
+  const token = (await cookies()).get('token')?.value;
 
+  if (!token) {
+    console.error("Token otentikasi tidak ditemukan.");
+    return undefined;
+  }
   return (
     <SidebarProvider>
       <AppSidebar />
@@ -73,7 +60,7 @@ export default async function DetailAssetPage({ params }: { params: { assetId: s
           <div className="flex flex-1 flex-col">
             <div className="@container/main flex flex-1 flex-col gap-2">
               <div className="flex flex-col gap-4 py-4 md:py-6">
-                <AssetDetailView asset={asset} />
+                <AssetDetailView assetId={assetId} token={token} />
               </div>
             </div>
           </div>
@@ -81,4 +68,13 @@ export default async function DetailAssetPage({ params }: { params: { assetId: s
       </SidebarInset>
     </SidebarProvider>
   );
+  // return (
+  //   <div style={{ padding: '40px', fontFamily: 'sans-serif', color: 'white', backgroundColor: 'black' }}>
+  //     <h1>Halaman Debugging Detail Aset</h1>
+  //     <p>Jika halaman ini muncul tanpa error di terminal, berarti deklarasi fungsi dan cara Anda menerima `assetId` sudah benar.</p>
+  //     <p style={{ marginTop: '20px', fontSize: '24px' }}>
+  //       {/* Asset ID yang diterima dari URL adalah: <strong>{asset.asset_id}</strong> */}
+  //     </p>
+  //   </div>
+  // );
 }

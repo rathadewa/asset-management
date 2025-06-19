@@ -15,20 +15,28 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar"
 import { DataTable } from "@/components/data-table-request"
+import { cookies } from 'next/headers';
 
 async function getData() {
-  const url = `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.request}`;
-  try {
-    const response = await fetch(url, { cache: 'no-store' });
-    if (!response.ok) {
-      throw new Error(`Gagal mengambil data, status: ${response.status}`);
-    }
-    const responseData = await response.json();
-    return responseData.data || []; 
-  } catch (error) {
-    console.error("Gagal mengambil data dari API:", error);
-    return [];
+  const token = (await cookies()).get('token')?.value;
+
+  if (!token) {    
+    throw new Error('Sesi tidak valid atau tidak ditemukan. Silakan login kembali.');
   }
+
+  const url = `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.request}`; 
+  const response = await fetch(url, {
+    headers: {
+      'Authorization': `Bearer ${token}`
+    },
+    cache: 'no-store' 
+  });
+
+  if (!response.ok) {
+    throw new Error(`Gagal mengambil data, status: ${response.status}`);
+  }
+  const responseData = await response.json();
+  return responseData.data || [];
 }
 
 export default async function Page() {
