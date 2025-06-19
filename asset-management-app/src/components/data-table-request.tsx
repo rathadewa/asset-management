@@ -76,7 +76,7 @@ import {
 } from "@/components/ui/table"
 import {IconChevronUp } from '@tabler/icons-react';
 import Link from "next/link"
-import { deleteAsset, DeleteConfirmationDialog } from "./delete-confirmation"
+import { deleteRequest, DeleteConfirmationDialog } from "./delete-confirmation"
 import { ChevronsUpDown } from "lucide-react"
 import { toast } from "sonner"
 
@@ -174,14 +174,17 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
       const { setData } = table.options.meta;
       const handleDelete = async () => {
         try {
-          await deleteAsset(row.original.asset_id);
+          await deleteRequest(row.original.request_id);
           setData((currentData: any[]) => 
-            currentData.filter(item => item.asset_id !== row.original.asset_id)
+            currentData.filter(item => item.request_id !== row.original.request_id)
           );
           toast.success(`Request dengan ID "${row.original.request_id}" berhasil dihapus.`);
         } catch (error) {
+          const errorMessage = error instanceof Error ? error.message : "Terjadi kesalahan yang tidak diketahui.";
           console.error("Gagal menghapus request dari tabel:", error);
-          toast.error("Gagal menghapus request.");
+          toast.error("Gagal Menghapus Request", {
+            description: errorMessage,
+          });
         }
       };
       return(
@@ -249,8 +252,6 @@ export function DataTable({
 }: {
   data: z.infer<typeof schema>[]
 }) {
-  console.log("=== DEBUG: initialData ===", initialData)
-
   const [data, setData] = React.useState(() => initialData)
   const [rowSelection, setRowSelection] = React.useState({})
   const [columnVisibility, setColumnVisibility] =

@@ -126,7 +126,7 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
     accessorKey: "asset_name",
     header: "Asset Name",
     cell: ({ row }) => (
-      <div className="">{row.original.asset_name}</div>
+      <div className="text-center">{row.original.asset_name}</div>
     ),
     enableHiding: false,
   },
@@ -172,7 +172,7 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
     accessorKey: "asset_location",
     header: "Location",
     cell: ({ row }) => (
-        <div className="">{row.original.location}</div>
+        <div className="text-center ">{row.original.location}</div>
     ),
   },
   {
@@ -181,7 +181,7 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
     cell: ({ row }) => {
       const date = new Date(row.original.created_date);
       const formattedDateTime = `${dateFormatter.format(date)} ${timeFormatter.format(date)}`;
-      return <div className="">{formattedDateTime}</div>;
+      return <div className="text-center">{formattedDateTime}</div>;
     },
   },
   {
@@ -190,7 +190,7 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
     cell: ({ row }) => {
         const date = new Date(row.original.updated_at);
         const formattedDateTime = `${dateFormatter.format(date)} ${timeFormatter.format(date)}`;
-        return <div className="">{formattedDateTime}</div>;
+        return <div className="text-center">{formattedDateTime}</div>;
     },
   },
   {
@@ -203,10 +203,13 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
           setData((currentData: any[]) => 
             currentData.filter(item => item.asset_id !== row.original.asset_id)
           );
-          toast.success(`Aset "${row.original.asset_name}" berhasil dihapus.`);
+          toast.success(`Aset "${row.original.asset_name}" dengan ID "${row.original.asset_id}" berhasil dihapus.`);
         } catch (error) {
+          const errorMessage = error instanceof Error ? error.message : "Terjadi kesalahan yang tidak diketahui.";
           console.error("Gagal menghapus aset dari tabel:", error);
-          toast.error("Gagal menghapus aset.");
+          toast.error("Gagal Menghapus Aset", {
+            description: errorMessage,
+          });
         }
       };
       return(
