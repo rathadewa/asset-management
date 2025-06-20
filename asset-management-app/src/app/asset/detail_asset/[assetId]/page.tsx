@@ -13,6 +13,7 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
+
 import { notFound } from "next/navigation";
 import { AssetDetailView } from "@/components/detail-asset";
 import { cookies } from "next/headers";

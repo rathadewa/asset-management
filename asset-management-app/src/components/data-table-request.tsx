@@ -79,6 +79,7 @@ import Link from "next/link"
 import { deleteRequest, DeleteConfirmationDialog } from "./delete-confirmation"
 import { ChevronsUpDown } from "lucide-react"
 import { toast } from "sonner"
+import { RequestData } from "@/app/request/types"
 
 declare module '@tanstack/react-table' {
   
@@ -175,7 +176,7 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
       const handleDelete = async () => {
         try {
           await deleteRequest(row.original.request_id);
-          setData((currentData: any[]) => 
+          setData((currentData: RequestData[]) => 
             currentData.filter(item => item.request_id !== row.original.request_id)
           );
           toast.success(`Request dengan ID "${row.original.request_id}" berhasil dihapus.`);
@@ -201,12 +202,12 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="w-32">
             <DropdownMenuItem>
-              <Link href={`/asset/detail_asset/${row.original.asset_id}`}>
+              <Link href={`/request/detail_request/${row.original.request_id}`}>
                 View Detail
               </Link>
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <Link href={`/asset/update_asset/${row.original.asset_id}`}>
+              <Link href={`/request/update_request/${row.original.request_id}`}>
                   Update
               </Link>
             </DropdownMenuItem>
@@ -224,7 +225,7 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
 
 function DraggableRow({ row }: { row: Row<z.infer<typeof schema>> }) {
   const { transform, transition, setNodeRef, isDragging } = useSortable({
-    id: row.original.asset_id,
+    id: row.original.request_id,
   })
 
   return (
@@ -272,7 +273,7 @@ export function DataTable({
   )
 
   const dataIds = React.useMemo<UniqueIdentifier[]>(
-    () => data?.map(({ asset_id }) => asset_id) || [],
+    () => data?.map(({ request_id }) => request_id) || [],
     [data]
   )
 
@@ -289,7 +290,7 @@ export function DataTable({
     meta:{
       setData,
     },
-    getRowId: (row) => row.asset_id.toString(),
+    getRowId: (row) => row.request_id.toString(),
     enableRowSelection: true,
     onRowSelectionChange: setRowSelection,
     onSortingChange: setSorting,

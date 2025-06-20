@@ -3,7 +3,6 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import * as z from "zod"
 import { useState } from "react"
 import { useRouter } from "next/navigation"
@@ -127,11 +126,11 @@ export function LoginForm({className, ...props}: React.ComponentProps<"div">) {
             </form>
           </Form>
           <div className="bg-muted relative hidden md:block">
-            <img
-              src="/placeholder.svg"
+            {/* <img
+              src="/file.svg"
               alt="Image"
               className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
-            />
+            /> */}
           </div>
         </CardContent>
       </Card>

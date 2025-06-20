@@ -51,12 +51,12 @@ export function AddAssetView({ token }: { token: string | undefined }) {
         return;
     }
     if (!user || !user.name) {
-            toast.error("Submission Failed", {
-                description: "User information not available. Please try again.",
-            });
-            setIsSubmitting(false);
-            return;
-        }
+        toast.error("Submission Failed", {
+            description: "User information not available. Please try again.",
+        });
+        setIsSubmitting(false);
+        return;
+    }
 
     const payload = {
       asset_name: data.asset_name,

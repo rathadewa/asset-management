@@ -82,9 +82,9 @@ import Link from "next/link"
 import { deleteAsset, DeleteConfirmationDialog } from "./delete-confirmation"
 import { ChevronsUpDown } from "lucide-react"
 import { toast } from "sonner"
+import { AssetData } from "@/app/asset/types"
 
 declare module '@tanstack/react-table' {
-  
   interface TableMeta<TData extends RowData> {
     setData: React.Dispatch<React.SetStateAction<TData[]>>
   }
@@ -200,7 +200,7 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
       const handleDelete = async () => {
         try {
           await deleteAsset(row.original.asset_id);
-          setData((currentData: any[]) => 
+          setData((currentData: AssetData[]) => 
             currentData.filter(item => item.asset_id !== row.original.asset_id)
           );
           toast.success(`Aset "${row.original.asset_name}" dengan ID "${row.original.asset_id}" berhasil dihapus.`);

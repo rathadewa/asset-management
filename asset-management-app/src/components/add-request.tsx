@@ -42,6 +42,8 @@ interface AddRequestViewProps {
 }
 
 export function AddRequestView({ token }: AddRequestViewProps) {
+  const [open, setOpen] = useState(false);
+  const [month, setMonth] = useState<Date | undefined>(field.value);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
   const user = useUser();
@@ -144,9 +146,6 @@ export function AddRequestView({ token }: AddRequestViewProps) {
               control={form.control}
               name="request_date"
               render={({ field }) => {
-                const [open, setOpen] = useState(false);
-                const [month, setMonth] = useState<Date | undefined>(field.value);
-
                 return (
                   <FormItem className="grid grid-cols-5 items-center gap-4">
                     <FormLabel className="col-span-1 font-medium">Request Date</FormLabel>

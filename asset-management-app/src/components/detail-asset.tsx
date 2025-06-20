@@ -4,18 +4,18 @@ import { useEffect, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
-import { IconCircleCheckFilled, IconLoader } from "@tabler/icons-react";
+import { IconCircleCheckFilled, IconCircleXFilled, IconLoader } from "@tabler/icons-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ChevronLeft, RefreshCcw, Trash } from "lucide-react";
 import { deleteAsset, DeleteConfirmationDialog } from "@/components/delete-confirmation";
-import { Asset } from "@/app/asset/types";
+import { AssetData } from "@/app/asset/types";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import API_CONFIG from "@/config/api";
 
 
-async function getAssetData(id: string, token: string): Promise<Asset | undefined> {
+async function getAssetData(id: string, token: string): Promise<AssetData | undefined> {
   const url = `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.get_asset}`;
   try {
     const response = await fetch(url, {
@@ -36,17 +36,18 @@ async function getAssetData(id: string, token: string): Promise<Asset | undefine
   }
 }
 
-function StatusBadge({ status }: { status: "Ready to Deployed" | "Deployed" }) {
+function StatusBadge({ status }: { status: "Ready to Deployed" | "Deployed" | "Undeployed" }) {
   if (status === "Deployed") {
-    return <Badge variant="default" className="bg-green-600 text-md gap-2 flex items-center"> <IconCircleCheckFilled className="fill-white" /> Deployed</Badge>;
-  }
-  return <Badge variant="secondary" className="text-md gap-2 flex items-center"> <IconLoader /> Ready to Deployed </Badge>;
+    return <Badge variant="default" className="bg-green-500 text-md gap-2 flex items-center"> <IconCircleCheckFilled className="fill-white" /> Deployed</Badge>;
+  } else if (status === "Undeployed") {
+    return <Badge variant="destructive" className="bg-red-500 text-md gap-2 flex items-center"> <IconCircleXFilled className="fill-white" /> Deployed</Badge>;
+  } return <Badge variant="secondary" className="text-md gap-2 flex items-center"> <IconLoader /> Ready to Deployed </Badge>;
 }
 
 
 export function AssetDetailView({ assetId, token }: { assetId: string, token: string | undefined }) {
   
-  const [asset, setAsset] = useState<Asset | null>(null);
+  const [asset, setAsset] = useState<AssetData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();

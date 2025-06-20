@@ -18,6 +18,10 @@ import { AddAssetView } from "@/components/add-asset";
 
 export default async function Page() {
   const token = (await cookies()).get('token')?.value;
+  if (!token) {
+    console.error("Token otentikasi tidak ditemukan.");
+    return undefined;
+  }
 
   return (
     <SidebarProvider>

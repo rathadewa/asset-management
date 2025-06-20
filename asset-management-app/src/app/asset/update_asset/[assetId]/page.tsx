@@ -13,8 +13,6 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar"
-import path from "path";
-import { promises as fs } from "fs";
 import { notFound } from "next/navigation";
 import { cookies } from "next/headers";
 import { AssetUpdateView } from "@/components/update-asset";
@@ -26,13 +24,13 @@ type UpdateAssetPageProps = {
 export default async function DetailAssetPage(props: UpdateAssetPageProps) {
   const params = await props.params;
   const assetId = params.assetId;
+
   
   if (!assetId) {
     notFound();
   }
   
   const token = (await cookies()).get('token')?.value;
-
   if (!token) {
     console.error("Token otentikasi tidak ditemukan.");
     return undefined;

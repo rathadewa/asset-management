@@ -1,4 +1,4 @@
-export type Asset = {
+export type AssetData = {
   id: number;
   asset_name: string;
   asset_id: string;
