@@ -357,7 +357,7 @@ export function DataTable({
                 })}
             </DropdownMenuContent>
           </DropdownMenu>
-          <Link href="/asset/add_asset">
+          <Link href="/request/add_request">
             <Button size="sm">
               <IconPlus /> <span className="hidden lg:inline">Add Request</span>
             </Button>

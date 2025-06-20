@@ -30,6 +30,7 @@ import {
 } from "@/components/ui/sidebar"
 import { logout } from "@/app/actions/auth" 
 import { useUser } from "@/hooks/use-user"
+import Link from "next/link"
 
 export function NavUser() {
   const { isMobile } = useSidebar()
@@ -44,7 +45,7 @@ export function NavUser() {
     <SidebarMenu>
       <SidebarMenuItem>
         <DropdownMenu>
-          <DropdownMenuTrigger asChild>
+          <DropdownMenuTrigger asChild className="cursor-pointer">
             <SidebarMenuButton
               size="lg"
               className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
@@ -68,36 +69,35 @@ export function NavUser() {
             sideOffset={4}
           >
             <DropdownMenuLabel className="p-0 font-normal">
-              <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
-                <Avatar className="h-8 w-8 rounded-lg">
-                  {/* <AvatarImage src={user.avatar} alt={user.name} /> */}
-                  <AvatarFallback className="rounded-lg">{nameInitial}</AvatarFallback>
-                </Avatar>
-                <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-medium">{user.name}</span>
-                  {/* <span className="truncate text-xs">{user.email}</span> */}
+              <Link href="#" className="flex flex-row gap-2 items-center">
+                <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
+                  <Avatar className="h-8 w-8 rounded-lg">
+                    {/* <AvatarImage src={user.avatar} alt={user.name} /> */}
+                    <AvatarFallback className="rounded-lg">{nameInitial}</AvatarFallback>
+                  </Avatar>
+                  <div className="grid flex-1 text-left text-sm leading-tight">
+                    <span className="truncate font-medium">{user.name}</span>
+                    {/* <span className="truncate text-xs">{user.email}</span> */}
+                  </div>
                 </div>
-              </div>
+              </Link>
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem>
-                <BadgeCheck />
-                Account
+                <Link href="#" className="flex flex-row gap-2 items-center"><BadgeCheck />Account</Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <Settings />
-                Settings
+                <Link href="#" className="flex flex-row gap-2 items-center"><Settings />Settings</Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <Bell />
-                Notifications
+                <Link href="#" className="flex flex-row gap-2 items-center"><Bell />Notifications</Link>
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <form action={logout}>
               <DropdownMenuItem asChild>
-                <button type="submit" className="w-full">
+                <button type="submit" className="w-full cursor-pointer">
                   <LogOut className="mr-2 h-4 w-4" />
                   <span>Log out</span>
                 </button>

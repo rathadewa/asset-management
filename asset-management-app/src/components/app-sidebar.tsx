@@ -2,8 +2,6 @@
 
 import * as React from "react"
 import {
-  AudioWaveform,
-  Command,
   GalleryVerticalEnd,
   GitPullRequest,
   SquareLibrary,
@@ -21,26 +19,11 @@ import {
 } from "@/components/ui/sidebar"
 
 const data = {
-  user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "",
-  },
   teams: [
     {
-      name: "Acme Inc",
+      name: "Asset Management",
       logo: GalleryVerticalEnd,
-      plan: "Enterprise",
-    },
-    {
-      name: "Acme Corp.",
-      logo: AudioWaveform,
-      plan: "Startup",
-    },
-    {
-      name: "Evil Corp.",
-      logo: Command,
-      plan: "Free",
+      plan: "Dashboard",
     },
   ],
   navMain: [
@@ -88,8 +71,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarContent>
         <NavMain items={data.navMain} />
       </SidebarContent>
-      <SidebarFooter>
-        <NavUser user={data.user} />
+      <SidebarFooter className="cursor-pointer">
+        <NavUser />
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>

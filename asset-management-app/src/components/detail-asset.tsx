@@ -41,7 +41,8 @@ function StatusBadge({ status }: { status: "Ready to Deployed" | "Deployed" | "U
     return <Badge variant="default" className="bg-green-500 text-md gap-2 flex items-center"> <IconCircleCheckFilled className="fill-white" /> Deployed</Badge>;
   } else if (status === "Undeployed") {
     return <Badge variant="destructive" className="bg-red-500 text-md gap-2 flex items-center"> <IconCircleXFilled className="fill-white" /> Deployed</Badge>;
-  } return <Badge variant="secondary" className="text-md gap-2 flex items-center"> <IconLoader /> Ready to Deployed </Badge>;
+  } 
+  return <Badge variant="secondary" className="text-md gap-2 flex items-center"> <IconLoader /> Ready to Deployed </Badge>;
 }
 
 

@@ -42,8 +42,6 @@ interface AddRequestViewProps {
 }
 
 export function AddRequestView({ token }: AddRequestViewProps) {
-  const [open, setOpen] = useState(false);
-  const [month, setMonth] = useState<Date | undefined>(field.value);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
   const user = useUser();
@@ -55,6 +53,9 @@ export function AddRequestView({ token }: AddRequestViewProps) {
       request_date: new Date(),
     },
   });
+
+  const [open, setOpen] = useState(false);
+  const [month, setMonth] = useState<Date | undefined>(form.getValues("request_date"));
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
     setIsSubmitting(true);
@@ -130,7 +131,7 @@ export function AddRequestView({ token }: AddRequestViewProps) {
             <FormField
               control={form.control}
               name="asset_id"
-              render={({ field }) => (
+              render={({ field }) => (    
                 <FormItem className="grid grid-cols-5 items-center gap-4">
                   <FormLabel className="col-span-1 font-medium">Asset ID</FormLabel>
                   <div className="col-span-3">
