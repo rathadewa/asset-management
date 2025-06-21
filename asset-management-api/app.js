@@ -1,7 +1,14 @@
 const express = require('express');
 const authRoutes = require('./routes/auth');
 const app = express();
+const cors = require('cors');
 const port = 3000;
+
+app.use(cors({
+  origin: 'http://34.101.34.165:3001',
+  methods: ['GET','POST','PUT','DELETE'],
+  credentials: true
+}));
 
 const cors = require('cors');
 
