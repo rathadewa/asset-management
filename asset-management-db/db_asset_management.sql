@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 18, 2025 at 08:22 PM
+-- Generation Time: Jun 21, 2025 at 02:30 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -70,6 +70,8 @@ INSERT INTO `tb_assets` (`asset_id`, `asset_name`, `category`, `status`, `locati
 CREATE TABLE `tb_request` (
   `request_id` varchar(15) NOT NULL,
   `asset_id` varchar(15) DEFAULT NULL,
+  `reason` longtext NOT NULL,
+  `status` enum('approved','rejected','cancelled','waiting for approval') NOT NULL DEFAULT 'waiting for approval',
   `request_date` date DEFAULT NULL,
   `created_date` datetime DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
@@ -81,18 +83,19 @@ CREATE TABLE `tb_request` (
 -- Dumping data for table `tb_request`
 --
 
-INSERT INTO `tb_request` (`request_id`, `asset_id`, `request_date`, `created_date`, `updated_at`, `created_by`, `updated_by`) VALUES
-('REQ0NaN', 'A06253', '2025-06-17', '2025-06-19 01:14:28', '2025-06-19 01:14:28', 'admin02', 'admin02'),
-('REQ1001', 'A06255', '2025-06-17', '2025-06-19 00:56:50', '2025-06-19 00:57:49', NULL, NULL),
-('REQ1002', 'A06253', '2025-06-17', '2025-06-19 01:16:03', '2025-06-19 01:16:03', 'admin02', 'admin02'),
-('REQ1003', 'A06253', '2025-06-17', '2025-06-19 01:16:05', '2025-06-19 01:16:05', 'admin02', 'admin02'),
-('REQ1004', 'A06253', '2025-06-17', '2025-06-19 01:16:06', '2025-06-19 01:16:06', 'admin02', 'admin02'),
-('REQ1005', 'A06253', '2025-06-17', '2025-06-19 01:16:07', '2025-06-19 01:16:07', 'admin02', 'admin02'),
-('REQ1006', 'A06253', '2025-06-17', '2025-06-19 01:16:08', '2025-06-19 01:16:08', 'admin02', 'admin02'),
-('REQ1007', 'A06253', '2025-06-17', '2025-06-19 01:16:09', '2025-06-19 01:16:09', 'admin02', 'admin02'),
-('REQ1008', 'A06253', '2025-06-17', '2025-06-19 01:16:09', '2025-06-19 01:16:09', 'admin02', 'admin02'),
-('REQ1010', 'A06253', '2025-06-17', '2025-06-19 01:17:01', '2025-06-19 01:17:01', 'admin02', 'admin02'),
-('REQ1011', 'A06253', '2025-06-17', '2025-06-19 01:17:15', '2025-06-19 01:17:15', 'admin02', 'admin02');
+INSERT INTO `tb_request` (`request_id`, `asset_id`, `reason`, `status`, `request_date`, `created_date`, `updated_at`, `created_by`, `updated_by`) VALUES
+('REQ0NaN', 'A06253', '', 'waiting for approval', '2025-06-17', '2025-06-19 01:14:28', '2025-06-19 01:14:28', 'admin02', 'admin02'),
+('REQ1001', 'A06255', '', 'waiting for approval', '2025-06-17', '2025-06-19 00:56:50', '2025-06-19 00:57:49', NULL, NULL),
+('REQ1002', 'A06253', '', 'waiting for approval', '2025-06-17', '2025-06-19 01:16:03', '2025-06-19 01:16:03', 'admin02', 'admin02'),
+('REQ1003', 'A06253', '', 'waiting for approval', '2025-06-17', '2025-06-19 01:16:05', '2025-06-19 01:16:05', 'admin02', 'admin02'),
+('REQ1004', 'A06253', '', 'waiting for approval', '2025-06-17', '2025-06-19 01:16:06', '2025-06-19 01:16:06', 'admin02', 'admin02'),
+('REQ1005', 'A06253', '', 'waiting for approval', '2025-06-17', '2025-06-19 01:16:07', '2025-06-19 01:16:07', 'admin02', 'admin02'),
+('REQ1006', 'A06253', '', 'waiting for approval', '2025-06-17', '2025-06-19 01:16:08', '2025-06-19 01:16:08', 'admin02', 'admin02'),
+('REQ1007', 'A06253', '', 'waiting for approval', '2025-06-17', '2025-06-19 01:16:09', '2025-06-19 01:16:09', 'admin02', 'admin02'),
+('REQ1008', 'A06253', '', 'waiting for approval', '2025-06-17', '2025-06-19 01:16:09', '2025-06-19 01:16:09', 'admin02', 'admin02'),
+('REQ1010', 'A06253', '', 'waiting for approval', '2025-06-17', '2025-06-19 01:17:01', '2025-06-19 01:17:01', 'admin02', 'admin02'),
+('REQ1011', 'A06253', '', 'waiting for approval', '2025-06-17', '2025-06-19 01:17:15', '2025-06-19 01:17:15', 'admin02', 'admin02'),
+('REQ1012', 'A06253', 'Testing', 'approved', '2025-06-17', '2025-06-21 07:24:39', '2025-06-21 07:28:04', 'admin02', 'admin02');
 
 -- --------------------------------------------------------
 

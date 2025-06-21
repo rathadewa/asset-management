@@ -20,9 +20,9 @@ router.get('/',verifyToken, (req, res) => {
 
 // POST: Tambah data request baru
 router.post('/', verifyToken, (req, res) => {
-  const { asset_id, request_date, created_by, updated_by } = req.body;
+  const { asset_id, request_date, reason, created_by, updated_by } = req.body;
 
-  if (!asset_id || !request_date || !created_by || !updated_by) {
+  if (!asset_id || !request_date || !reason || !created_by || !updated_by) {
     return res.status(400).json({ error: 'Semua field wajib diisi' });
   }
 
@@ -50,14 +50,14 @@ router.post('/', verifyToken, (req, res) => {
       }
     }
 
-    const request_id = `${prefix}${String(nextNumber).padStart(4, '0')}`; // REQ0001, REQ0002, ...
+    const request_id = `${prefix}${String(nextNumber).padStart(4, '0')}`;
 
     const insertSql = `
-      INSERT INTO tb_request (request_id, asset_id, request_date, created_by, updated_by)
-      VALUES (?, ?, ?, ?, ?)
+      INSERT INTO tb_request (request_id, asset_id, request_date, reason, created_by, updated_by)
+      VALUES (?, ?, ?, ?, ?, ?)
     `;
 
-    const values = [request_id, asset_id, request_date, created_by, updated_by];
+    const values = [request_id, asset_id, request_date, reason, created_by, updated_by];
 
     db.query(insertSql, values, (err, result) => {
       if (err) {
@@ -72,6 +72,7 @@ router.post('/', verifyToken, (req, res) => {
     });
   });
 });
+
 
 
 
@@ -98,10 +99,11 @@ router.delete('/',verifyToken, (req, res) => {
   });
 });
 
-router.put('/',verifyToken, (req, res) => {
-  const { request_id, asset_id, request_date, created_by, updated_by } = req.body;
+router.put('/', verifyToken, (req, res) => {
+  const { request_id, asset_id, request_date, reason, status, created_by, updated_by } = req.body;
 
-  if (!request_id || !asset_id || !request_date || !created_by || !updated_by) {
+  // Validasi semua field wajib
+  if (!request_id || !asset_id || !request_date || !reason || !status || !created_by || !updated_by) {
     return res.status(400).json({ error: 'Semua field wajib diisi' });
   }
 
@@ -109,12 +111,14 @@ router.put('/',verifyToken, (req, res) => {
     UPDATE tb_request 
     SET asset_id = ?, 
         request_date = ?, 
+        reason = ?, 
+        status = ?,
         created_by = ?, 
         updated_by = ?
     WHERE request_id = ?
   `;
 
-  const values = [asset_id, request_date, created_by, updated_by, request_id];
+  const values = [asset_id, request_date, reason, status, created_by, updated_by, request_id];
 
   db.query(sql, values, (err, result) => {
     if (err) {
@@ -129,6 +133,7 @@ router.put('/',verifyToken, (req, res) => {
     res.json({ message: 'Request berhasil diperbarui' });
   });
 });
+
 
 // GET request berdasarkan request_id dari JSON body
 router.post('/get',verifyToken, (req, res) => {
