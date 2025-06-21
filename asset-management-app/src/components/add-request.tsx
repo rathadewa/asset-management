@@ -1,11 +1,11 @@
 "use client";
 
 import { z } from "zod";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { CalendarIcon, ChevronLeft, Plus, X } from "lucide-react";
+import { CalendarIcon, Check, ChevronLeft, ChevronsUpDown, Plus, X } from "lucide-react";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -15,6 +15,11 @@ import { toast } from "sonner";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { Calendar } from "./ui/calendar";
 import { useUser } from "@/hooks/use-user";
+import { AssetData } from "@/app/asset/types";
+import API_CONFIG from "@/config/api";
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "./ui/command";
+import { cn } from "@/lib/utils";
+import { Textarea } from "./ui/textarea";
 
 function formatDate(date: Date | undefined): string {
   if (!date) {
@@ -30,11 +35,16 @@ function isValidDate(date: Date | undefined): boolean {
   return !isNaN(date.getTime());
 }
 
+const today = new Date();
+today.setHours(0, 0, 0, 0); // Mengatur waktu ke awal hari
+
 const FormSchema = z.object({
   asset_id: z.string().min(1, "Asset ID is required"),
+  reason: z.string().min(2, "Reason must be at least 4 characters"),
   request_date: z.date({
     required_error: "A Request Date is required",
-  }),
+  })
+  .min(today, {message: "Request date cannot be in the past."}),
 });
 
 interface AddRequestViewProps {
@@ -46,13 +56,46 @@ export function AddRequestView({ token }: AddRequestViewProps) {
   const router = useRouter();
   const user = useUser();
 
+  const [assets, setAssets] = useState<AssetData[]>([]);
+  const [openCombobox, setOpenCombobox] = useState(false);
+
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
       asset_id: "",
+      reason: "",
       request_date: new Date(),
     },
   });
+
+  useEffect(() => {
+    async function fetchAssets() {
+      if (!token) return;
+      try {
+        const response = await fetch(`${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.assets}`, {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+          },
+        });
+        const result = await response.json();
+        if (!response.ok) {
+          throw new Error(result.error || "Failed to fetch assets");
+        }
+        setAssets(result.data);
+      } catch (error) {
+        console.error("Error fetching assets:", error);
+        toast.error("Failed to load assets", {
+            description: "Could not retrieve asset list from the server."
+        });
+      }
+    }
+
+    fetchAssets();
+  }, [token]);
+  
+  const availableAssets = useMemo(() => {
+    return assets.filter(asset => asset.status === "Ready to Deploy");
+  }, [assets]);
 
   const [open, setOpen] = useState(false);
   const [month, setMonth] = useState<Date | undefined>(form.getValues("request_date"));
@@ -76,13 +119,14 @@ export function AddRequestView({ token }: AddRequestViewProps) {
 
     const payload = {
       asset_id: data.asset_id,
+      reason: data.reason,
       request_date: formatDate(data.request_date),
       created_by: user.name,
       updated_by: user.name,
     };
 
     try {
-      const response = await fetch('http://localhost:3000/api/requests', {
+      const response = await fetch(`${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.request}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -128,6 +172,64 @@ export function AddRequestView({ token }: AddRequestViewProps) {
             </div>
           </CardHeader>
           <CardContent className="flex flex-col gap-4">
+            <FormItem className="grid grid-cols-5 items-center gap-4">
+              <FormLabel className="col-span-1 font-medium">Asset Name</FormLabel>
+              <div className="col-span-3">
+                <Popover open={openCombobox} onOpenChange={setOpenCombobox}>
+                  <PopoverTrigger asChild>
+                    <FormControl>
+                      <Button
+                        variant="outline"
+                        role="combobox"
+                        aria-expanded={openCombobox}
+                        className={cn(
+                          "w-full justify-between",
+                          !form.getValues("asset_id") && "text-muted-foreground"
+                        )}
+                      >
+                        {form.getValues("asset_id")
+                          ? availableAssets.find(
+                              (asset) => asset.asset_id === form.getValues("asset_id")
+                            )?.asset_name
+                          : "Select Asset Name"}
+                        <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                      </Button>
+                    </FormControl>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-[--radix-popover-trigger-width] p-0">
+                    <Command>
+                        <CommandInput placeholder="Search asset name..." />
+                        <CommandList>
+                            <CommandEmpty>No asset found.</CommandEmpty>
+                            <CommandGroup>
+                                {availableAssets.map((asset) => (
+                                <CommandItem
+                                    value={asset.asset_name}
+                                    key={asset.asset_id}
+                                    onSelect={() => {
+                                        form.setValue("asset_id", asset.asset_id);
+                                        setOpenCombobox(false);
+                                    }}
+                                >
+                                    <Check
+                                    className={cn(
+                                        "mr-2 h-4 w-4",
+                                        asset.asset_id === form.getValues("asset_id")
+                                        ? "opacity-100"
+                                        : "opacity-0"
+                                    )}
+                                    />
+                                    {asset.asset_name}
+                                </CommandItem>
+                                ))}
+                            </CommandGroup>
+                        </CommandList>
+                    </Command>
+                  </PopoverContent>
+                </Popover>
+                <FormMessage />
+              </div>
+            </FormItem>
             <FormField
               control={form.control}
               name="asset_id"
@@ -136,7 +238,7 @@ export function AddRequestView({ token }: AddRequestViewProps) {
                   <FormLabel className="col-span-1 font-medium">Asset ID</FormLabel>
                   <div className="col-span-3">
                     <FormControl>
-                      <Input placeholder="e.g., A06253" {...field} />
+                      <Input placeholder="Select an asset to see its ID" {...field} disabled />
                     </FormControl>
                     <FormMessage />
                   </div>
@@ -187,11 +289,12 @@ export function AddRequestView({ token }: AddRequestViewProps) {
                                 field.onChange(date);
                                 setOpen(false);
                               }}
+                              disabled={(date) => date < new Date(new Date().setHours(0, 0, 0, 0))}
                               month={month}
                               onMonthChange={setMonth}
                               captionLayout="dropdown"
-                              fromYear={2020}
-                              toYear={2030}
+                              fromYear={new Date().getFullYear()}
+                              toYear={new Date().getFullYear() + 5} // Contoh: Batasi hingga 5 tahun ke depan
                               initialFocus
                             />
                           </PopoverContent>
@@ -202,6 +305,25 @@ export function AddRequestView({ token }: AddRequestViewProps) {
                   </FormItem>
                 );
               }}
+            />
+            <FormField
+              control={form.control}
+              name="reason"
+              render={({ field }) => (
+                <FormItem className="grid grid-cols-5 items-start gap-4">
+                  <FormLabel className="col-span-1 font-medium pt-2">Reason</FormLabel>
+                  <div className="col-span-3">
+                    <FormControl>
+                      <Textarea
+                        placeholder="Tell us the reason for this request"
+                        className="resize-y"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </div>
+                </FormItem>
+              )}
             />
           </CardContent>
           <div className="flex items-center justify-between px-4 pt-4 border-t">

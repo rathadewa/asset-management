@@ -26,8 +26,11 @@ import {
   IconChevronRight,
   IconChevronsLeft,
   IconChevronsRight,
+  IconCircleCheckFilled,
+  IconCircleXFilled,
   IconDotsVertical,
   IconLayoutColumns,
+  IconLoader,
   IconPlus,
 } from "@tabler/icons-react"
 import {
@@ -91,6 +94,7 @@ declare module '@tanstack/react-table' {
 export const schema = z.object({
   request_id: z.string(),
   asset_id: z.string(),
+  status: z.string(),
   request_date: z.string(),
   created_date: z.string(),
   updated_at: z.string(),
@@ -150,6 +154,30 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
       const formattedDateTime = `${dateFormatter.format(date)}`;
       return <div className="text-center">{formattedDateTime}</div>;
     },
+  },
+  {
+    accessorKey: "status",
+    header: "Status",
+    cell: ({ row }) => {
+      const capitalize = (str: string) => {
+        if (typeof str !== 'string' || !str) return '';
+        return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+      };
+      return (
+        <div className="text-center">
+            <Badge variant="outline" className="justify-center px-1.5">
+            {row.original.status === "approved" ? (
+                <IconCircleCheckFilled className="fill-green-500 dark:fill-green-400" />
+            ) : row.original.status === "rejected" ? (
+                <IconCircleXFilled className="fill-red-500 dark:fill-red-400" />
+            ) : (
+                <IconLoader /> 
+            )}
+            {capitalize(row.original.status)}
+          </Badge>
+        </div>
+      )
+    }
   },
   {
     accessorKey: "created_date",

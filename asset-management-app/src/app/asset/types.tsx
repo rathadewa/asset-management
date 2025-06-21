@@ -3,7 +3,7 @@ export type AssetData = {
   asset_name: string;
   asset_id: string;
   category: string;
-  status: "Ready to Deployed" | "Deployed";
+  status: "Ready to Deploy" | "Deployed" | "Undeployed";
   location: string;
   created_date: string;
   updated_at: string;
