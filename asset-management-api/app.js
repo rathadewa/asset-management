@@ -10,12 +10,6 @@ app.use(cors({
   credentials: true
 }));
 
-const cors = require('cors');
-
-const corsOptions = {
-  origin: 'http://localhost:4000', 
-  optionsSuccessStatus: 200 
-};
 app.use(cors(corsOptions));
 
 app.use(express.json());
