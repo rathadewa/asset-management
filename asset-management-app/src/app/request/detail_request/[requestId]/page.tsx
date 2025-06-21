@@ -75,13 +75,4 @@ export default async function DetailAssetPage(props: DetailRequestPageProps) {
       </SidebarInset>
     </SidebarProvider>
   );
-  // return (
-  //   <div style={{ padding: '40px', fontFamily: 'sans-serif', color: 'white', backgroundColor: 'black' }}>
-  //     <h1>Halaman Debugging Detail Aset</h1>
-  //     <p>Jika halaman ini muncul tanpa error di terminal, berarti deklarasi fungsi dan cara Anda menerima `requestId` sudah benar.</p>
-  //     <p style={{ marginTop: '20px', fontSize: '24px' }}>
-  //       {/* Asset ID yang diterima dari URL adalah: <strong>{asset.asset_id}</strong> */}
-  //     </p>
-  //   </div>
-  // );
 }
