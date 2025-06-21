@@ -10,8 +10,6 @@ app.use(cors({
   credentials: true
 }));
 
-app.use(cors(corsOptions));
-
 app.use(express.json());
 
 const userRoutes = require('./routes/users');
