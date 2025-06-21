@@ -4,6 +4,12 @@ const app = express();
 const cors = require('cors');
 const port = 3000;
 
+app.use(cors({
+  origin: 'http://34.101.34.165:3001',
+  methods: ['GET','POST','PUT','DELETE'],
+  credentials: true
+}));
+
 app.use(express.json());
 
 const userRoutes = require('./routes/users');
@@ -17,8 +23,6 @@ app.use('/api/requests', requestRoutes);
 
 app.use(express.json());
 app.use('/api/auth', authRoutes);
-
-app.use(cors());
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
