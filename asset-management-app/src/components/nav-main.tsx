@@ -40,16 +40,6 @@ export function NavMain({
     <SidebarGroup>
       <SidebarGroupLabel>Main Menu</SidebarGroupLabel>
       <SidebarMenu>
-        <SidebarMenuItem key="dashboard">
-          <SidebarMenuButton asChild>
-            <Link href="/">
-              < LayoutDashboard />
-              <span>Dashboard</span>
-            </Link>
-          </SidebarMenuButton>
-        </SidebarMenuItem>
-      </SidebarMenu>
-      <SidebarMenu>
         {items.map((item) => (
           <Collapsible
             key={item.title}
