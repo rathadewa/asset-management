@@ -35,7 +35,7 @@ async function getRequestData(id: string, token: string): Promise<RequestData | 
   }
 }
 
-function StatusBadge({ status }: { status: "waiting for approval" | "rejected" | "canceled" | "approved"; }) {
+function StatusBadge({ status }: { status: "waiting for approval" | "rejected" | "cancelled" | "approved"; }) {
   if (status === "approved") {
     return <Badge variant="default" className="bg-green-500 text-md gap-2 flex items-center"> <IconCircleCheckFilled className="fill-white" /> Approved </Badge>;
   } else if (status === "rejected") {

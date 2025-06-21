@@ -17,7 +17,7 @@ import { useState } from "react"
 import { RequestData } from "@/app/request/types"
 import { Textarea } from "./ui/textarea"
 
-const statuses = ["waiting for approval", "rejected", "canceled", "approved"];
+const statuses = ["waiting for approval", "rejected", "cancelled", "approved"];
 
 const FormSchema = z.object({
     request_id: z.string(),
@@ -131,9 +131,11 @@ export function RequestUpdateForm({ request, token }: { request: RequestData, to
         
         const requestPayload = {
         ...data,
+        request_date: new Date(data.request_date).toLocaleDateString('en-CA'), 
         created_by: request.created_by, 
-        updated_by: user.name, 
+        updated_by: user.name,
         };
+        console.log("Payload untuk UPDATE yang akan dikirim:", requestPayload);
 
         try {
         

@@ -134,7 +134,6 @@ export function AddRequestView({ token }: AddRequestViewProps) {
         },
         body: JSON.stringify(payload),
       });
-
       const result = await response.json();
 
       if (!response.ok) {
