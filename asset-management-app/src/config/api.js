@@ -1,5 +1,5 @@
 const API_CONFIG = {
-  BASE_URL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000',
+  BASE_URL: process.env.NEXT_PUBLIC_API_URL || 'http://34.101.34.165:3000',
 
   ENDPOINTS: {
     assets: '/api/assets',
