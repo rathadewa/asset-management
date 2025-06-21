@@ -17,6 +17,10 @@ app.use('/api/requests', requestRoutes);
 app.use(express.json());
 app.use('/api/auth', authRoutes);
 
+app.use(cors({
+    origin: 'http://34.101.34.165:3001'  // sesuaikan IP public frontend kamu
+}));
+
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
