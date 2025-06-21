@@ -16,7 +16,7 @@ import API_CONFIG from "@/config/api"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 
-const categories = ["Laptop", "Hp", "Monitor", "Pointer", "Elektronik"];
+const categories = ["Notebook", "Imac", "Macbook", "Adaptor", "PC","Printer","External Disk","UPS","HDD","Camera","Scanner","Paper Shredder","PABX", "Mesin Absen", "Lemari es","Microwave","Dispenser","CCTV","TV","Software Adobe","Development Tools","Platform"];
 const statuses = ["Ready to Deploy", "Deployed", "Undeployed"];
 
 const FormSchema = z.object({

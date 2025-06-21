@@ -1,6 +1,8 @@
 export type RequestData = {
   request_id: string;
   asset_id: string;
+  status: "waiting for approval" | "rejected" | "canceled" | "approved";
+  reason: string;
   request_date: string;
   created_date: string;
   update_at: string;

@@ -16,7 +16,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { toast } from "sonner";
 import { useUser } from "@/hooks/use-user";
 
-const categories = ["Laptop", "Hp", "Monitor", "Pointer", "Elektronik"] as const;
+const categories = ["Notebook", "Imac", "Macbook", "Adaptor", "PC","Printer","External Disk","UPS","HDD","Camera","Scanner","Paper Shredder","PABX", "Mesin Absen", "Lemari es","Microwave","Dispenser","CCTV","TV","Software Adobe","Development Tools","Platform"] as const;
 const statuses = ["Ready to Deploy", "Deployed", "Undeployed"] as const;
 
 const FormSchema = z.object({

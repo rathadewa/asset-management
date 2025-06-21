@@ -6,6 +6,7 @@ const API_CONFIG = {
     get_asset: '/api/assets/get',
     users: '/api/users',
     request: '/api/requests',
+    get_request: '/api/requests/get',
     login: '/api/auth/login'
   }
 };
