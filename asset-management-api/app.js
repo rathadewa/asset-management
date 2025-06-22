@@ -5,7 +5,7 @@ const cors = require('cors');
 const port = 3000;
 
 app.use(cors({
-  origin: 'http://34.101.34.165:3001',
+  origin: 'http://34.101.248.202:3001',
   methods: ['GET','POST','PUT','DELETE'],
   credentials: true
 }));

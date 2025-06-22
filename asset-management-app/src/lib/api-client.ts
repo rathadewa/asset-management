@@ -2,7 +2,7 @@
 
 import Cookies from "js-cookie";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://34.101.34.165:3000'
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://34.101.248.202:3000'
 
 function handleLogout() {  
 //   localStorage.removeItem('user');
