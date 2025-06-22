@@ -4,11 +4,13 @@ const app = express();
 const cors = require('cors');
 const port = 3000;
 
-app.use(cors({
-  origin: 'http://34.101.248.202:3001',
-  methods: ['GET','POST','PUT','DELETE'],
-  credentials: true
-}));
+// app.use(cors({
+//   origin: 'http://34.101.248.202:3001',
+//   methods: ['GET','POST','PUT','DELETE'],
+//   credentials: true
+// }));
+
+app.use(cors());
 
 app.use(express.json());
 
